@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-white antialiased;
+  }
+
+  ::selection {
+    background-color: rgba(0, 212, 255, 0.3);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #00D4FF, #B44FFF);
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #00D4FF, #B44FFF) 1;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.15),
+      0 0 80px rgba(0, 212, 255, 0.05);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px rgba(180, 79, 255, 0.15),
+      0 0 80px rgba(180, 79, 255, 0.05);
+  }
+
+  .glass {
+    @apply border border-white/10 bg-white/[0.03] backdrop-blur-md;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/[0.08] bg-bg-card/80 backdrop-blur-sm;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
