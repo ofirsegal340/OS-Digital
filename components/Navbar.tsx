@@ -35,16 +35,10 @@ export default function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6" dir="ltr">
-        {/* Desktop nav + CTA (left side) */}
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
+        {/* Nav links (right side in RTL) */}
         <div className="hidden items-center gap-8 md:flex">
-          <button
-            onClick={() => handleNav("#contact")}
-            className="rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
-          >
-            השאירו פרטים
-          </button>
-          {[...navLinks].reverse().map((link) => (
+          {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
@@ -53,9 +47,15 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
+          <button
+            onClick={() => handleNav("#contact")}
+            className="rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
+          >
+            השאירו פרטים
+          </button>
         </div>
 
-        {/* Mobile hamburger (left side) */}
+        {/* Mobile hamburger (right side in RTL) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white md:hidden"
@@ -64,14 +64,11 @@ export default function Navbar() {
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Logo + Name (right side) */}
+        {/* Logo + Name (left side in RTL) */}
         <button
           onClick={() => handleNav("#hero")}
           className="flex items-center gap-3"
         >
-          <span className="text-lg font-bold tracking-tight">
-            OS <span className="text-primary-blue">Digital</span>
-          </span>
           <Image
             src="/logo.png"
             alt="OS Digital"
@@ -80,6 +77,9 @@ export default function Navbar() {
             className="h-9 w-auto"
             priority
           />
+          <span className="text-lg font-bold tracking-tight">
+            OS <span className="text-primary-blue">Digital</span>
+          </span>
         </button>
       </div>
 
