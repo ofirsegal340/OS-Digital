@@ -32,14 +32,27 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
     try {
-      const { marketingConsent: _, ...formData } = data;
-      const res = await fetch("/api/contact", {
+      const { marketingConsent: _, ...fields } = data;
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "37cf1005-e1e9-4b16-86a2-84f25b972e7d",
+          subject: `ליד חדש מהאתר — ${fields.businessName}`,
+          from_name: "OS Digital Landing Page",
+          name: fields.fullName,
+          email: fields.email,
+          phone: fields.phone,
+          "שם העסק": fields.businessName,
+          message: fields.message || "—",
+        }),
       });
 
-      if (!res.ok) throw new Error();
+      const result = await res.json();
+      if (!result.success) throw new Error();
       setStatus("success");
       reset();
     } catch {
