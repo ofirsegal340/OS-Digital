@@ -73,7 +73,7 @@ function CountUpStat({
 
 export default function StatsSection() {
   return (
-    <section className="relative py-28 px-6">
+    <section id="stats" className="relative py-28 px-6">
       {/* Background glow */}
       <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[400px] rounded-full bg-primary-blue/[0.04] blur-[100px]" />
 
