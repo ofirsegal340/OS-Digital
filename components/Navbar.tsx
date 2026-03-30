@@ -8,6 +8,7 @@ const navLinks = [
   { label: "ראשי", href: "#hero" },
   { label: "שירותים", href: "#services" },
   { label: "למה אנחנו", href: "#stats" },
+  { label: "שאלות נפוצות", href: "#faq" },
   { label: "צרו קשר", href: "#contact" },
 ];
 
