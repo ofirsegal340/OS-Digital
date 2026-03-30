@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 export default function HeroSection() {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "972584594488";
 
   const scrollToForm = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -56,7 +56,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
           className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-text-muted md:text-lg"
         >
-          קמפיינים ממומנים שמביאים לקוחות אמיתיים — בפייסבוק, אינסטגרם, גוגל,
+          קמפיינים ממומנים שמביאים לקוחות מדויקים לעסק שלך — בפייסבוק, אינסטגרם, גוגל,
           טיקטוק, לינקדאין וטאבולה.
         </motion.p>
 
