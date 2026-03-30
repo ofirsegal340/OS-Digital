@@ -3,13 +3,6 @@ import { contactSchema } from "@/lib/validations";
 
 const WEB3FORMS_KEY = "37cf1005-e1e9-4b16-86a2-84f25b972e7d";
 
-const budgetLabels: Record<string, string> = {
-  under_2k: "עד ₪2,000",
-  "2k_5k": "₪2,000 – ₪5,000",
-  "5k_15k": "₪5,000 – ₪15,000",
-  above_15k: "₪15,000+",
-};
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -22,8 +15,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { fullName, email, phone, businessName, budget, message } =
-      parsed.data;
+    const { fullName, email, phone, businessName, message } = parsed.data;
 
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -36,7 +28,6 @@ export async function POST(request: Request) {
         "מייל": email,
         "טלפון": phone,
         "שם העסק": businessName,
-        "תקציב חודשי": budgetLabels[budget] || budget,
         "הודעה": message || "—",
       }),
     });

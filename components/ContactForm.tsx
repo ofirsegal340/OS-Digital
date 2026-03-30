@@ -11,17 +11,14 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react";
-import {
-  contactSchema,
-  type ContactFormData,
-  budgetOptions,
-} from "@/lib/validations";
+import { contactSchema, type ContactFormData } from "@/lib/validations";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "972584594488";
+  const whatsappNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "972584594488";
 
   const {
     register,
@@ -68,9 +65,7 @@ export default function ContactForm() {
             <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
               צרו קשר
             </span>
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              בואו נדבר
-            </h2>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">בואו נדבר</h2>
             <p className="text-sm text-text-muted">
               השאירו פרטים ונחזור אליכם תוך 24 שעות
             </p>
@@ -153,28 +148,6 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <select
-                    {...register("budget")}
-                    defaultValue=""
-                    className={`${inputClasses} [&>option]:bg-bg-dark`}
-                  >
-                    <option value="" disabled className="text-text-muted">
-                      תקציב חודשי לפרסום
-                    </option>
-                    {budgetOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.budget && (
-                    <p className="mt-2 text-xs text-red-400">
-                      {errors.budget.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
                   <textarea
                     {...register("message")}
                     placeholder="הודעה (אופציונלי)"
@@ -196,8 +169,8 @@ export default function ContactForm() {
                       className="mt-1 h-4 w-4 shrink-0 cursor-pointer appearance-none rounded border border-white/20 bg-bg-card/80 transition-all checked:border-primary-blue checked:bg-primary-blue"
                     />
                     <span className="text-xs leading-relaxed text-text-muted">
-                      אני מאשר/ת קבלת תוכן שיווקי מ-OS Digital. ניתן להסיר
-                      את עצמך בכל עת.
+                      אני מאשר/ת קבלת תוכן שיווקי מ-OS Digital. ניתן להסיר את
+                      עצמך בכל עת.
                     </span>
                   </label>
                   {errors.marketingConsent && (
