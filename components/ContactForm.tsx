@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react";
-import { contactSchema, type ContactFormData } from "@/lib/validations";
+import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -26,16 +26,17 @@ export default function ContactForm() {
     reset,
     formState: { errors },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactFormSchema),
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
     try {
+      const { marketingConsent: _, ...formData } = data;
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
 
       if (!res.ok) throw new Error();
