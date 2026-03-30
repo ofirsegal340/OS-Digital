@@ -35,28 +35,16 @@ export default function Navbar() {
           : "bg-transparent py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
-        {/* Logo + Name */}
-        <button
-          onClick={() => handleNav("#hero")}
-          className="flex items-center gap-3"
-        >
-          <Image
-            src="/logo.png"
-            alt="OS Digital"
-            width={120}
-            height={40}
-            className="h-9 w-auto"
-            priority
-          />
-          <span className="text-lg font-bold tracking-tight">
-            OS <span className="text-primary-blue">Digital</span>
-          </span>
-        </button>
-
-        {/* Desktop nav */}
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6" dir="ltr">
+        {/* Desktop nav + CTA (left side) */}
         <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+          <button
+            onClick={() => handleNav("#contact")}
+            className="rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
+          >
+            השאירו פרטים
+          </button>
+          {[...navLinks].reverse().map((link) => (
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
@@ -65,21 +53,33 @@ export default function Navbar() {
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => handleNav("#contact")}
-            className="rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
-          >
-            השאירו פרטים
-          </button>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger (left side) */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="text-white md:hidden"
           aria-label="תפריט"
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Logo + Name (right side) */}
+        <button
+          onClick={() => handleNav("#hero")}
+          className="flex items-center gap-3"
+        >
+          <span className="text-lg font-bold tracking-tight">
+            OS <span className="text-primary-blue">Digital</span>
+          </span>
+          <Image
+            src="/logo.png"
+            alt="OS Digital"
+            width={120}
+            height={40}
+            className="h-9 w-auto"
+            priority
+          />
         </button>
       </div>
 
