@@ -53,6 +53,20 @@ export default function ContactForm() {
 
       const result = await res.json();
       if (!result.success) throw new Error();
+
+      // Send to Make → HubSpot (fire and forget)
+      fetch("https://hook.eu2.make.com/ssqnvh4vnfmtf5fn4mbukz2kyy837nvy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fields.fullName,
+          email: fields.email,
+          phone: fields.phone,
+          businessName: fields.businessName,
+          message: fields.message || "",
+        }),
+      }).catch(() => {});
+
       setStatus("success");
       reset();
     } catch {
