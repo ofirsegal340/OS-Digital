@@ -31,8 +31,19 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
+
+    const { marketingConsent: _, ...fields } = data;
+    const payload = {
+      name: fields.fullName,
+      email: fields.email,
+      phone: fields.phone,
+      businessName: fields.businessName,
+      message: fields.message || "",
+    };
+
+    // 1. Send to Web3Forms (email notification)
+    let emailSent = false;
     try {
-      const { marketingConsent: _, ...fields } = data;
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -43,33 +54,31 @@ export default function ContactForm() {
           access_key: "37cf1005-e1e9-4b16-86a2-84f25b972e7d",
           subject: `ליד חדש מהאתר — ${fields.businessName}`,
           from_name: "OS Digital Landing Page",
-          name: fields.fullName,
-          email: fields.email,
-          phone: fields.phone,
-          "שם העסק": fields.businessName,
-          message: fields.message || "—",
+          ...payload,
         }),
       });
-
       const result = await res.json();
-      if (!result.success) throw new Error();
+      emailSent = result.success === true;
+    } catch {
+      // Web3Forms failed — continue anyway
+    }
 
-      // Send to Make → HubSpot (fire and forget)
+    // 2. Send to Make → HubSpot (independent, never blocks)
+    try {
       fetch("https://hook.eu2.make.com/ssqnvh4vnfmtf5fn4mbukz2kyy837nvy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: fields.fullName,
-          email: fields.email,
-          phone: fields.phone,
-          businessName: fields.businessName,
-          message: fields.message || "",
-        }),
+        body: JSON.stringify(payload),
       }).catch(() => {});
+    } catch {
+      // Make failed — ignore
+    }
 
+    // 3. Show success if at least one service got the data
+    if (emailSent) {
       setStatus("success");
       reset();
-    } catch {
+    } else {
       setStatus("error");
     }
   };
