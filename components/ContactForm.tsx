@@ -118,21 +118,6 @@ export default function ContactForm() {
 
                 <div>
                   <input
-                    {...register("email")}
-                    type="email"
-                    placeholder="כתובת מייל"
-                    dir="ltr"
-                    className={inputClasses}
-                  />
-                  {errors.email && (
-                    <p className="mt-2 text-xs text-red-400">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <input
                     {...register("phone")}
                     type="tel"
                     placeholder="טלפון (05X-XXXXXXX)"
@@ -142,6 +127,21 @@ export default function ContactForm() {
                   {errors.phone && (
                     <p className="mt-2 text-xs text-red-400">
                       {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <input
+                    {...register("email")}
+                    type="email"
+                    placeholder="כתובת מייל"
+                    dir="ltr"
+                    className={inputClasses}
+                  />
+                  {errors.email && (
+                    <p className="mt-2 text-xs text-red-400">
+                      {errors.email.message}
                     </p>
                   )}
                 </div>
