@@ -50,9 +50,9 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="relative py-28 px-6">
+    <section id="faq" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
-      <div className="pointer-events-none absolute top-1/2 right-1/4 h-[300px] w-[400px] rounded-full bg-primary-purple/[0.04] blur-[100px]" />
+      <div className="pointer-events-none absolute top-1/2 right-1/4 h-[200px] w-[250px] md:h-[300px] md:w-[400px] rounded-full bg-primary-purple/[0.04] blur-[100px]" />
 
       <div className="relative mx-auto max-w-3xl">
         <motion.div
@@ -78,7 +78,7 @@ export default function FAQSection() {
             >
               <button
                 onClick={() => toggle(index)}
-                className={`glass-card w-full px-7 py-5 text-right transition-all duration-300 ${
+                className={`glass-card w-full px-4 sm:px-7 py-4 sm:py-5 text-right transition-all duration-300 ${
                   openIndex === index
                     ? "border-primary-blue/20 bg-bg-card-hover/80"
                     : "hover:border-white/[0.12] hover:bg-bg-card-hover/50"

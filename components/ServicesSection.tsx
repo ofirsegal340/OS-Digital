@@ -42,9 +42,9 @@ const cardVariants = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-28 px-6">
+    <section id="services" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
-      <div className="pointer-events-none absolute top-0 left-1/2 h-[300px] w-[600px] -translate-x-1/2 rounded-full bg-primary-purple/[0.04] blur-[100px]" />
+      <div className="pointer-events-none absolute top-0 left-1/2 h-[200px] w-[300px] md:h-[300px] md:w-[600px] -translate-x-1/2 rounded-full bg-primary-purple/[0.04] blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div

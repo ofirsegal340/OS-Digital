@@ -75,10 +75,10 @@ export default function Navbar() {
             alt="OS Digital"
             width={120}
             height={40}
-            className="h-9 w-auto"
+            className="h-7 sm:h-9 w-auto"
             priority
           />
-          <span className="text-lg font-bold tracking-tight">
+          <span className="text-base sm:text-lg font-bold tracking-tight">
             OS <span className="text-primary-blue">Digital</span>
           </span>
         </button>

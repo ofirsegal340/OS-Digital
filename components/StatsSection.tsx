@@ -58,12 +58,12 @@ function CountUpStat({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card relative overflow-hidden p-8 text-center"
+      className="glass-card relative overflow-hidden p-5 sm:p-8 text-center"
     >
       {/* Subtle top border gradient */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent" />
 
-      <p className="mb-3 text-4xl font-bold text-gradient md:text-5xl">
+      <p className="mb-3 text-3xl font-bold text-gradient md:text-5xl">
         {displayed || value}
       </p>
       <p className="text-sm leading-relaxed text-text-muted">{label}</p>
@@ -73,9 +73,9 @@ function CountUpStat({
 
 export default function StatsSection() {
   return (
-    <section id="stats" className="relative py-28 px-6">
+    <section id="stats" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[400px] rounded-full bg-primary-blue/[0.04] blur-[100px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[200px] w-[250px] md:h-[300px] md:w-[400px] rounded-full bg-primary-blue/[0.04] blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div

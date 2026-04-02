@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+
   body {
-    @apply bg-bg-dark text-white antialiased;
+    @apply bg-bg-dark text-white antialiased overflow-x-hidden;
   }
 
   ::selection {

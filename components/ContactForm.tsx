@@ -62,9 +62,9 @@ export default function ContactForm() {
     "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-5 py-3.5 text-sm text-white placeholder:text-text-muted transition-all duration-300 focus:border-primary-blue/40 focus:outline-none focus:ring-2 focus:ring-primary-blue/10 focus:bg-bg-card";
 
   return (
-    <section id="contact" className="relative py-28 px-6">
+    <section id="contact" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.05] blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] md:h-[500px] md:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.05] blur-[120px]" />
 
       <div className="relative mx-auto max-w-xl">
         <motion.div
@@ -98,7 +98,7 @@ export default function ContactForm() {
               </p>
             </motion.div>
           ) : (
-            <div className="glass-card overflow-hidden p-8 md:p-10">
+            <div className="glass-card overflow-hidden p-5 sm:p-8 md:p-10">
               {/* Top gradient border */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/30 to-transparent" />
 
