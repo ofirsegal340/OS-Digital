@@ -54,7 +54,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25, ease: "easeOut" }}
-          className="mx-auto mb-8 md:mb-12 max-w-2xl text-sm md:text-base leading-relaxed text-text-muted lg:text-lg"
+          className="mx-auto mb-8 md:mb-12 max-w-2xl text-base leading-relaxed text-text-muted lg:text-lg"
         >
           קמפיינים ממומנים שמביאים לקוחות מדויקים לעסק שלך — בפייסבוק, אינסטגרם, גוגל,
           טיקטוק, לינקדאין וטאבולה.

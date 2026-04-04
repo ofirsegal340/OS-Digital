@@ -66,7 +66,7 @@ function CountUpStat({
       <p className="mb-3 text-3xl font-bold text-gradient md:text-5xl">
         {displayed || value}
       </p>
-      <p className="text-sm leading-relaxed text-text-muted">{label}</p>
+      <p className="text-base leading-relaxed text-text-muted">{label}</p>
     </motion.div>
   );
 }

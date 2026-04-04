@@ -81,7 +81,7 @@ export default function ServicesSection() {
                   <service.icon className="h-6 w-6 text-primary-blue" />
                 </div>
                 <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                <p className="text-sm leading-relaxed text-text-muted">
+                <p className="text-base leading-relaxed text-text-muted">
                   {service.description}
                 </p>
               </div>

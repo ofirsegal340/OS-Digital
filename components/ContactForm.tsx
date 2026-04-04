@@ -81,7 +81,7 @@ export default function ContactForm() {
   const inputClasses =
     "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-4 py-3 text-base text-white placeholder:text-text-muted/60 transition-all duration-300 focus:border-primary-blue/40 focus:outline-none focus:ring-2 focus:ring-primary-blue/10 focus:bg-bg-card";
 
-  const labelClasses = "mb-1.5 block text-sm font-medium text-white/80";
+  const labelClasses = "mb-1.5 block text-base font-medium text-white/80";
 
   return (
     <section
@@ -103,7 +103,7 @@ export default function ContactForm() {
               צרו קשר
             </span>
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">בואו נדבר</h2>
-            <p className="text-sm text-text-muted">
+            <p className="text-base text-text-muted">
               השאירו פרטים ונחזור אליכם תוך 24 שעות
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function ContactForm() {
               <p className="text-lg md:text-xl font-semibold">
                 הפרטים נשלחו בהצלחה!
               </p>
-              <p className="mt-3 text-sm text-text-muted">
+              <p className="mt-3 text-base text-text-muted">
                 תודה! ניצור אתכם קשר בהקדם האפשרי
               </p>
               <button
@@ -168,7 +168,7 @@ export default function ContactForm() {
                     className={inputClasses}
                   />
                   {errors.fullName && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.fullName.message}
                     </p>
                   )}
@@ -190,7 +190,7 @@ export default function ContactForm() {
                     className={`${inputClasses} text-left`}
                   />
                   {errors.phone && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.phone.message}
                     </p>
                   )}
@@ -212,7 +212,7 @@ export default function ContactForm() {
                     className={`${inputClasses} text-left`}
                   />
                   {errors.email && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.email.message}
                     </p>
                   )}
@@ -232,7 +232,7 @@ export default function ContactForm() {
                     className={inputClasses}
                   />
                   {errors.businessName && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.businessName.message}
                     </p>
                   )}
@@ -254,7 +254,7 @@ export default function ContactForm() {
                     className={`${inputClasses} resize-none`}
                   />
                   {errors.message && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.message.message}
                     </p>
                   )}
@@ -275,13 +275,13 @@ export default function ContactForm() {
                         )}
                       </div>
                     </div>
-                    <span className="text-xs leading-relaxed text-text-muted">
+                    <span className="text-sm leading-relaxed text-text-muted">
                       אני מאשר/ת קבלת תוכן שיווקי מ-OS Digital. ניתן להסיר את
                       עצמך בכל עת.
                     </span>
                   </label>
                   {errors.marketingConsent && (
-                    <p className="mt-1.5 text-xs text-red-400">
+                    <p className="mt-1.5 text-sm text-red-400">
                       {errors.marketingConsent.message}
                     </p>
                   )}

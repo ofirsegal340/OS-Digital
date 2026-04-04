@@ -85,7 +85,7 @@ export default function FAQSection() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm font-medium leading-relaxed md:text-base">
+                  <span className="text-base font-medium leading-relaxed">
                     {faq.question}
                   </span>
                   <ChevronDown
@@ -103,7 +103,7 @@ export default function FAQSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="text-sm leading-relaxed text-text-muted">
+                    <p className="text-base leading-relaxed text-text-muted">
                       {faq.answer}
                     </p>
                   </div>
