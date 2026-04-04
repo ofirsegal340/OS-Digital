@@ -6,11 +6,12 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 sm:flex-row sm:justify-between">
         <div className="flex items-center gap-3">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="OS Digital"
             width={80}
             height={28}
             className="h-7 w-auto opacity-60"
+            loading="lazy"
           />
           <span className="text-sm text-text-muted">
             &copy; {new Date().getFullYear()}

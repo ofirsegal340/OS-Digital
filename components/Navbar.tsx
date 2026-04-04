@@ -71,7 +71,7 @@ export default function Navbar() {
           className="flex items-center gap-3"
         >
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="OS Digital"
             width={120}
             height={40}

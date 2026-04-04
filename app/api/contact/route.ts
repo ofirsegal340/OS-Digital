@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { contactSchema } from "@/lib/validations";
 
-const WEB3FORMS_KEY = "37cf1005-e1e9-4b16-86a2-84f25b972e7d";
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -15,25 +13,29 @@ export async function POST(request: Request) {
       );
     }
 
+    const endpoint = process.env.PAYLOAD_ENDPOINT;
+    if (!endpoint) {
+      return NextResponse.json(
+        { error: "Server misconfigured" },
+        { status: 500 }
+      );
+    }
+
     const { fullName, email, phone, businessName, message } = parsed.data;
 
-    const res = await fetch("https://api.web3forms.com/submit", {
+    const res = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject: `ליד חדש מהאתר — ${businessName}`,
-        from_name: "OS Digital Landing Page",
-        "שם מלא": fullName,
-        "מייל": email,
-        "טלפון": phone,
-        "שם העסק": businessName,
-        "הודעה": message || "—",
+        name: fullName,
+        email,
+        phone,
+        businessName,
+        message: message || "",
       }),
     });
 
     if (!res.ok) {
-      console.error("Web3Forms error:", res.status);
       return NextResponse.json(
         { error: "Failed to submit" },
         { status: 502 }
@@ -41,8 +43,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Contact form error:", error);
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
