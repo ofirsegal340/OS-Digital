@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
@@ -13,6 +13,7 @@ import {
   Check,
 } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
+import { trackEvent, trackPixelEvent } from "@/lib/analytics";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -34,6 +35,7 @@ export default function ContactForm() {
   const marketingChecked = watch("marketingConsent");
 
   const [honeypot, setHoneypot] = useState("");
+  const hasTrackedLead = useRef(false);
 
   const onSubmit = async (data: ContactFormData) => {
     // Honeypot check on client too
@@ -72,6 +74,16 @@ export default function ContactForm() {
       }
       setStatus("success");
       reset();
+
+      // Track Lead event — only once per session
+      if (!hasTrackedLead.current) {
+        hasTrackedLead.current = true;
+        trackPixelEvent("Lead", { form_name: "contact_form" });
+        trackEvent("Lead", {
+          form_name: "contact_form",
+          page: window.location.pathname,
+        });
+      }
     } catch {
       clearTimeout(timeout);
       setStatus("error");
@@ -318,6 +330,13 @@ export default function ContactForm() {
                     href={`https://wa.me/${whatsappNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("CTAClick", {
+                        button_name: "form_whatsapp",
+                        button_text: "דברו איתנו בוואטסאפ",
+                        location: "contact_form",
+                      })
+                    }
                     className="flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-full border border-whatsapp/20 bg-whatsapp/10 py-3.5 text-sm font-medium text-whatsapp transition-all duration-300 hover:scale-[1.02] hover:bg-whatsapp/15 hover:shadow-lg hover:shadow-whatsapp/10"
                   >
                     <MessageCircle className="h-4 w-4" />

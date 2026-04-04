@@ -2,11 +2,17 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function HeroSection() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "972584594488";
 
   const scrollToForm = () => {
+    trackEvent("CTAClick", {
+      button_name: "hero_cta",
+      button_text: "השאירו פרטים לשיחת ייעוץ חינם",
+      location: "hero_section",
+    });
     const el = document.getElementById("contact");
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - 80;
@@ -80,6 +86,13 @@ export default function HeroSection() {
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("CTAClick", {
+                button_name: "hero_whatsapp",
+                button_text: "דברו איתנו בוואטסאפ",
+                location: "hero_section",
+              })
+            }
             className="flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-full border border-whatsapp/30 bg-whatsapp/10 px-8 py-4 text-sm font-medium text-whatsapp transition-all duration-300 hover:scale-105 hover:bg-whatsapp/20 hover:shadow-lg hover:shadow-whatsapp/10"
           >
             <MessageCircle size={18} />
