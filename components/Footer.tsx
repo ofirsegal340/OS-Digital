@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <Image
             src="/logo.webp"
-            alt="OS Digital"
+            alt="OS Digital — סוכנות שיווק דיגיטלי"
             width={80}
             height={28}
             className="h-7 w-auto opacity-60"

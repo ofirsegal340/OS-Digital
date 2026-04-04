@@ -44,9 +44,9 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
           className="mb-5 md:mb-7 text-3xl font-bold leading-[1.2] md:text-5xl lg:text-6xl"
         >
-          מפסיקים לבזבז תקציב.
+          קידום ממומן שמפסיק לבזבז
           <br />
-          מתחילים לראות{" "}
+          ומתחיל להביא{" "}
           <span className="text-gradient">תוצאות.</span>
         </motion.h1>
 

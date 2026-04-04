@@ -72,7 +72,7 @@ export default function Navbar() {
         >
           <Image
             src="/logo.webp"
-            alt="OS Digital"
+            alt="OS Digital — סוכנות קידום ממומן לעסקים"
             width={120}
             height={40}
             className="h-7 sm:h-9 w-auto"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://osdigitalagency.com/sitemap.xml
