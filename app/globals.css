@@ -5,6 +5,8 @@
 @layer base {
   html {
     @apply overflow-x-hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   body {
@@ -45,7 +47,6 @@
   }
 }
 
-/* Scrollbar */
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

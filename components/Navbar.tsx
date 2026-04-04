@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
@@ -12,9 +12,21 @@ const navLinks = [
   { label: "צרו קשר", href: "#contact" },
 ];
 
+const NAVBAR_HEIGHT = 80;
+
+function scrollToSection(href: string) {
+  const el = document.querySelector(href);
+  if (!el) return;
+  const top =
+    el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -22,10 +34,37 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  // Close menu on click outside
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
   const handleNav = (href: string) => {
     setMenuOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href);
   };
 
   return (
@@ -58,9 +97,11 @@ export default function Navbar() {
 
         {/* Mobile hamburger (right side in RTL) */}
         <button
+          ref={buttonRef}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white md:hidden"
-          aria-label="תפריט"
+          className="flex h-11 w-11 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/[0.05] md:hidden"
+          aria-label={menuOpen ? "סגור תפריט" : "פתח תפריט"}
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -86,7 +127,10 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-white/[0.06] bg-bg-dark/95 backdrop-blur-xl md:hidden">
+        <div
+          ref={menuRef}
+          className="border-t border-white/[0.06] bg-bg-dark/95 backdrop-blur-xl md:hidden"
+        >
           <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (
               <button
