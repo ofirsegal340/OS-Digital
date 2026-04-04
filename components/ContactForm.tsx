@@ -33,7 +33,12 @@ export default function ContactForm() {
 
   const marketingChecked = watch("marketingConsent");
 
+  const [honeypot, setHoneypot] = useState("");
+
   const onSubmit = async (data: ContactFormData) => {
+    // Honeypot check on client too
+    if (honeypot) return;
+
     setStatus("loading");
 
     const { marketingConsent: _, ...fields } = data;
@@ -42,25 +47,29 @@ export default function ContactForm() {
     const timeout = setTimeout(() => controller.abort(), 15000);
 
     try {
-      const res = await fetch(
-        "https://hook.eu2.make.com/ssqnvh4vnfmtf5fn4mbukz2kyy837nvy",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: fields.fullName,
-            email: fields.email,
-            phone: fields.phone,
-            businessName: fields.businessName,
-            message: fields.message || "",
-          }),
-          signal: controller.signal,
-        }
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: fields.fullName,
+          email: fields.email,
+          phone: fields.phone,
+          businessName: fields.businessName,
+          message: fields.message || "",
+          website: honeypot, // honeypot field
+        }),
+        signal: controller.signal,
+      });
 
       clearTimeout(timeout);
 
-      if (!res.ok) throw new Error("Server error");
+      if (!res.ok) {
+        if (res.status === 429) {
+          setStatus("error");
+          return;
+        }
+        throw new Error("Server error");
+      }
       setStatus("success");
       reset();
     } catch {
@@ -131,6 +140,20 @@ export default function ContactForm() {
                 className="space-y-4 md:space-y-5"
                 noValidate
               >
+                {/* Honeypot — hidden from real users, bots fill it */}
+                <div aria-hidden="true" className="absolute -left-[9999px]">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
+
                 {/* Full Name */}
                 <div>
                   <label htmlFor="fullName" className={labelClasses}>
