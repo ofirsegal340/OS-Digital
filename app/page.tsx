@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 
 const PlatformsBar = dynamic(() => import("@/components/PlatformsBar"));
 const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
+const ProcessSection = dynamic(() => import("@/components/ProcessSection"));
 const StatsSection = dynamic(() => import("@/components/StatsSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
 const ContactForm = dynamic(() => import("@/components/ContactForm"));
@@ -43,6 +44,7 @@ export default function Home() {
         <HeroSection />
         <PlatformsBar />
         <ServicesSection />
+        <ProcessSection />
         <StatsSection />
         <FAQSection />
         <ContactForm />
