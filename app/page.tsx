@@ -6,6 +6,7 @@ const PlatformsBar = dynamic(() => import("@/components/PlatformsBar"));
 const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
 const ProcessSection = dynamic(() => import("@/components/ProcessSection"));
 const StatsSection = dynamic(() => import("@/components/StatsSection"));
+const CertificateSection = dynamic(() => import("@/components/CertificateSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
 const ContactForm = dynamic(() => import("@/components/ContactForm"));
 const Footer = dynamic(() => import("@/components/Footer"));
@@ -46,6 +47,7 @@ export default function Home() {
         <ServicesSection />
         <ProcessSection />
         <StatsSection />
+        <CertificateSection />
         <FAQSection />
         <ContactForm />
       </main>
