@@ -24,7 +24,7 @@ export default function CertificateSection() {
             הסמכה מקצועית
           </span>
           <h2 className="text-3xl font-bold md:text-4xl">
-            מוסמכים ומוכחים
+            הסמכות מקצועיות
           </h2>
           <p className="mt-4 text-base text-text-muted">
             אנחנו לא רק מדברים — אנחנו מוכיחים את הידע שלנו עם הסמכות מקצועיות.
