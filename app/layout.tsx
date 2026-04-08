@@ -14,6 +14,15 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
   title: "קידום ממומן לעסקים קטנים ובינוניים בישראל | OS Digital",
   description:
     "סוכנות OS Digital מנהלת קמפיינים ממומנים בפייסבוק, גוגל, אינסטגרם וטיקטוק שמביאים לקוחות מדויקים לעסק שלך. צרו קשר עכשיו וקבלו שיחת ייעוץ חינם.",
