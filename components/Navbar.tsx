@@ -69,11 +69,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 right-0 left-0 z-50 will-change-transform transition-all duration-500 ${
         scrolled
           ? "border-b border-white/[0.08] bg-bg-dark/70 py-3 shadow-lg shadow-black/20 backdrop-blur-xl saturate-150"
           : "bg-transparent py-5"
       }`}
+      style={{ WebkitTransform: "translateZ(0)", WebkitBackdropFilter: scrolled ? "blur(24px) saturate(150%)" : undefined }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
         {/* Nav links (right side in RTL) */}
@@ -130,6 +131,7 @@ export default function Navbar() {
         <div
           ref={menuRef}
           className="border-t border-white/[0.06] bg-bg-dark/95 backdrop-blur-xl md:hidden"
+          style={{ WebkitBackdropFilter: "blur(24px)" }}
         >
           <div className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (

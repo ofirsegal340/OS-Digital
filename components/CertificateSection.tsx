@@ -42,10 +42,7 @@ export default function CertificateSection() {
           {/* Top accent line */}
           <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/50 to-transparent" />
 
-          <div
-            className="w-full"
-            style={{ minHeight: "620px" }}
-          >
+          <div className="w-full" style={{ minHeight: "min(620px, 85vh)" }}>
             <iframe
               frameBorder="0"
               scrolling="no"
@@ -54,7 +51,7 @@ export default function CertificateSection() {
               src="https://learn.eilon.co/certificate-embed/UkiOv5eQsGTXZvEOR2bWVta2UAr2-2/EvBhx6C2pJTwnhX7ziui/kWjRAgXUVafGP1cvspObEgoXz9s1"
               allowFullScreen
               className="block w-full"
-              style={{ minHeight: "620px" }}
+              style={{ minHeight: "min(620px, 85vh)" }}
               title="תעודת הסמכה מקצועית"
             />
           </div>

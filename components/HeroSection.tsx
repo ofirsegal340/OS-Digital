@@ -20,7 +20,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
+    <section id="hero" className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
       {/* Background glow effects */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/2 h-[400px] w-[400px] md:h-[600px] md:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.12] blur-[150px]" />

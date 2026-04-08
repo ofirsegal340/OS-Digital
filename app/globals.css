@@ -22,6 +22,8 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, #00D4FF, #B44FFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .border-gradient {
@@ -40,15 +42,18 @@
 
   .glass {
     @apply border border-white/10 bg-white/[0.03] backdrop-blur-md;
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .glass-card {
     @apply rounded-2xl border border-white/[0.08] bg-bg-card/80 backdrop-blur-sm;
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .btn-shine {
     position: relative;
     overflow: hidden;
+    -webkit-mask-image: radial-gradient(white, white); /* Safari overflow+radius fix */
   }
   .btn-shine::after {
     content: "";
@@ -62,6 +67,7 @@
       rgba(255, 255, 255, 0.25) 55%,
       transparent 60%
     );
+    -webkit-transform: translateX(-200%);
     transform: translateX(-200%);
     animation: btn-shine-sweep 4s ease-in-out infinite;
   }
@@ -130,8 +136,8 @@
 }
 
 @keyframes btn-shine-sweep {
-  0%, 100% { transform: translateX(-200%); }
-  50% { transform: translateX(200%); }
+  0%, 100% { -webkit-transform: translateX(-200%); transform: translateX(-200%); }
+  50% { -webkit-transform: translateX(200%); transform: translateX(200%); }
 }
 
 /* Respect reduced motion preferences */
