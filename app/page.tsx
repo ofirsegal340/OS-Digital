@@ -45,10 +45,15 @@ export default function Home() {
         <HeroSection />
         <PlatformsBar />
         <ServicesSection />
+        <div className="section-divider" />
         <ProcessSection />
+        <div className="section-divider" />
         <StatsSection />
+        <div className="section-divider" />
         <CertificateSection />
+        <div className="section-divider" />
         <FAQSection />
+        <div className="section-divider" />
         <ContactForm />
       </main>
       <Footer />

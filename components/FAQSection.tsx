@@ -62,6 +62,9 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
+          <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
+            שאלות ותשובות
+          </span>
           <h2 className="text-3xl font-bold md:text-4xl">
             שאלות נפוצות
           </h2>

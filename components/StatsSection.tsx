@@ -58,15 +58,15 @@ function CountUpStat({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card relative overflow-hidden p-5 sm:p-8 text-center"
+      className="glass-card group relative overflow-hidden p-6 sm:p-8 text-center transition-all duration-500 hover:border-primary-blue/15 hover:shadow-lg hover:shadow-primary-blue/[0.06]"
     >
-      {/* Subtle top border gradient */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent" />
+      {/* Top border gradient */}
+      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent" />
 
-      <p className="mb-3 text-3xl font-bold text-gradient md:text-5xl">
+      <p className="mb-4 text-4xl font-extrabold text-gradient md:text-5xl lg:text-6xl tracking-tight">
         {displayed || value}
       </p>
-      <p className="text-base leading-relaxed text-text-muted">{label}</p>
+      <p className="text-sm sm:text-base leading-relaxed text-text-muted">{label}</p>
     </motion.div>
   );
 }

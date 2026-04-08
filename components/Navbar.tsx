@@ -89,7 +89,7 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => handleNav("#contact")}
-            className="rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
+            className="btn-shine rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
           >
             השאירו פרטים
           </button>

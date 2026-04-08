@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const META_BLUE = "#1877F2";
+const BRAND_BLUE = "#00D4FF";
 
 const steps = [
   {
@@ -41,10 +41,7 @@ export default function ProcessSection() {
   return (
     <section id="process" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
-      <div
-        className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]"
-        style={{ backgroundColor: `${META_BLUE}08` }}
-      />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-purple/[0.04] blur-[120px]" />
 
       <div className="relative mx-auto max-w-6xl">
         {/* Heading */}
@@ -55,10 +52,7 @@ export default function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span
-            className="mb-4 inline-block text-sm font-medium tracking-widest uppercase"
-            style={{ color: META_BLUE }}
-          >
+          <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
             תהליך העבודה
           </span>
           <h2 className="text-3xl font-bold md:text-4xl">
@@ -76,41 +70,20 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                className="group relative flex-1 overflow-hidden rounded-2xl border p-6 transition-all duration-500"
-                style={{
-                  backgroundColor: "#0F1329",
-                  borderColor: `${META_BLUE}22`,
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = `${META_BLUE}66`;
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 8px 32px ${META_BLUE}18`;
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = `${META_BLUE}22`;
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-                }}
+                className="glass-card group relative flex-1 overflow-hidden p-6 transition-all duration-500 hover:border-primary-blue/20 hover:shadow-xl hover:shadow-primary-blue/[0.05]"
               >
                 {/* Top gradient accent */}
-                <div
-                  className="absolute inset-x-0 top-0 h-[2px] rounded-t-2xl"
-                  style={{
-                    background: `linear-gradient(90deg, transparent, ${META_BLUE}, transparent)`,
-                    opacity: 0.6,
-                  }}
-                />
+                <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-primary-blue/60 to-transparent" />
 
                 {/* Step number badge */}
-                <div
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-full text-base font-bold text-white"
-                  style={{ background: `linear-gradient(135deg, ${META_BLUE}, #0668E1)` }}
-                >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-cta text-base font-bold text-bg-dark">
                   {step.number}
                 </div>
 
                 <h3 className="mb-3 text-base font-bold leading-snug md:text-lg">
                   {step.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+                <p className="text-sm leading-relaxed text-text-muted">
                   {step.description}
                 </p>
               </motion.div>
@@ -129,7 +102,7 @@ export default function ProcessSection() {
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M15 18l-6-6 6-6"
-                      stroke={META_BLUE}
+                      stroke={BRAND_BLUE}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"

@@ -71,13 +71,16 @@ export default function ServicesSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={cardVariants}
-              className="glass-card group relative overflow-hidden p-7 transition-all duration-500 hover:border-primary-blue/20 hover:bg-bg-card-hover/80 hover:shadow-xl hover:shadow-primary-blue/[0.05]"
+              className="glass-card group relative overflow-hidden p-7 transition-all duration-500 hover:border-primary-blue/20 hover:bg-bg-card-hover/80 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-blue/[0.08]"
             >
               {/* Card hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary-blue/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-b from-primary-blue/[0.04] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+              {/* Subtle top border accent */}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative z-10">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary-blue/10">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-blue/15 to-primary-purple/10 ring-1 ring-white/[0.06] transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary-blue/10">
                   <service.icon className="h-6 w-6 text-primary-blue" />
                 </div>
                 <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>

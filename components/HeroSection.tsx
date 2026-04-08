@@ -23,8 +23,18 @@ export default function HeroSection() {
     <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
       {/* Background glow effects */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 h-[300px] w-[300px] md:h-[500px] md:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.07] blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[250px] w-[250px] md:h-[400px] md:w-[400px] rounded-full bg-primary-purple/[0.07] blur-[120px]" />
+        <div className="absolute top-1/4 left-1/2 h-[400px] w-[400px] md:h-[600px] md:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.10] blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] md:h-[500px] md:w-[500px] rounded-full bg-primary-purple/[0.10] blur-[150px]" />
+        <motion.div
+          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/3 left-1/4 h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full bg-primary-blue/[0.05] blur-[80px]"
+        />
+        <motion.div
+          animate={{ y: [0, 15, 0], x: [0, -10, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-1/3 right-1/3 h-[120px] w-[120px] md:h-[200px] md:w-[200px] rounded-full bg-primary-purple/[0.06] blur-[80px]"
+        />
       </div>
 
       {/* Grid pattern overlay */}
@@ -42,7 +52,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-6 md:mb-8 inline-block rounded-full border border-primary-blue/20 bg-primary-blue/[0.08] px-4 py-2 text-[11px] md:text-xs font-medium tracking-widest text-primary-blue uppercase"
+          className="mb-6 md:mb-8 inline-block rounded-full border border-primary-blue/20 bg-primary-blue/[0.08] px-5 py-2.5 text-[11px] md:text-xs font-medium tracking-widest text-primary-blue uppercase shadow-lg shadow-primary-blue/[0.08]"
         >
           סוכנות קידום ממומן לעסקים קטנים ובינוניים
         </motion.span>
@@ -77,7 +87,7 @@ export default function HeroSection() {
         >
           <button
             onClick={scrollToForm}
-            className="group w-full sm:w-auto rounded-full bg-gradient-cta px-8 py-4 text-sm font-semibold text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-blue/20"
+            className="btn-shine group w-full sm:w-auto rounded-full bg-gradient-cta px-8 py-4 text-sm font-semibold text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-blue/25"
           >
             השאירו פרטים לשיחת ייעוץ חינם
           </button>

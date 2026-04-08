@@ -314,7 +314,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-full bg-gradient-cta py-3.5 text-sm font-semibold text-bg-dark transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-blue/20 disabled:opacity-60 disabled:hover:scale-100"
+                    className="btn-shine flex min-h-[48px] w-full items-center justify-center gap-2.5 rounded-full bg-gradient-cta py-3.5 text-sm font-semibold text-bg-dark transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary-blue/20 disabled:opacity-60 disabled:hover:scale-100"
                   >
                     {status === "loading" ? (
                       <Loader2 className="h-5 w-5 animate-spin" />
