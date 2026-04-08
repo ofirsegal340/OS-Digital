@@ -114,7 +114,7 @@ export default function ContactForm() {
             <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
               צרו קשר
             </span>
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">בואו נדבר</h2>
+            <h2 className="mb-4 text-3xl font-bold text-gradient md:text-4xl">בואו נדבר</h2>
             <p className="text-base text-text-muted">
               השאירו פרטים ונחזור אליכם תוך 24 שעות
             </p>
@@ -143,9 +143,8 @@ export default function ContactForm() {
               </button>
             </motion.div>
           ) : (
-            <div className="glass-card overflow-hidden p-5 sm:p-8 md:p-10">
-              {/* Top gradient border */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/30 to-transparent" />
+            <div className="glow-border">
+            <div className="overflow-hidden p-5 sm:p-8 md:p-10 relative">
 
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -344,6 +343,7 @@ export default function ContactForm() {
                   </a>
                 </div>
               </form>
+            </div>
             </div>
           )}
         </motion.div>

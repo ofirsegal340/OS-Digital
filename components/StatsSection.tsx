@@ -74,8 +74,10 @@ function CountUpStat({
 export default function StatsSection() {
   return (
     <section id="stats" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[200px] w-[250px] md:h-[300px] md:w-[400px] rounded-full bg-primary-blue/[0.04] blur-[100px]" />
+      {/* Large gradient background band */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-primary-blue/[0.03] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[400px] md:h-[500px] md:w-[700px] rounded-full bg-primary-blue/[0.06] blur-[150px]" />
+      <div className="pointer-events-none absolute top-0 left-1/4 h-[200px] w-[300px] md:h-[400px] md:w-[500px] rounded-full bg-primary-purple/[0.05] blur-[120px]" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div
@@ -88,7 +90,7 @@ export default function StatsSection() {
           <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
             למה אנחנו
           </span>
-          <h2 className="text-3xl font-bold md:text-4xl">
+          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
             למה OS Digital
           </h2>
         </motion.div>

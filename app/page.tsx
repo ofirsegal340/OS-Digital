@@ -46,11 +46,15 @@ export default function Home() {
         <PlatformsBar />
         <ServicesSection />
         <div className="section-divider" />
-        <ProcessSection />
+        <div className="section-elevated">
+          <ProcessSection />
+        </div>
         <div className="section-divider" />
         <StatsSection />
         <div className="section-divider" />
-        <CertificateSection />
+        <div className="section-elevated">
+          <CertificateSection />
+        </div>
         <div className="section-divider" />
         <FAQSection />
         <div className="section-divider" />

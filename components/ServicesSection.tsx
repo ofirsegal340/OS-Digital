@@ -57,7 +57,7 @@ export default function ServicesSection() {
           <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
             השירותים שלנו
           </span>
-          <h2 className="text-3xl font-bold md:text-4xl">
+          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
             מה אנחנו עושים
           </h2>
         </motion.div>
@@ -71,13 +71,13 @@ export default function ServicesSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={cardVariants}
-              className="glass-card group relative overflow-hidden p-7 transition-all duration-500 hover:border-primary-blue/20 hover:bg-bg-card-hover/80 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-blue/[0.08]"
+              className="glass-card group relative overflow-hidden p-7 transition-all duration-500 hover:border-primary-blue/25 hover:bg-bg-card-hover/80 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary-blue/[0.08]"
             >
-              {/* Card hover glow */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary-blue/[0.04] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              {/* Always-visible top accent line */}
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary-blue/40 via-primary-purple/30 to-transparent" />
 
-              {/* Subtle top border accent */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-blue/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              {/* Card hover glow */}
+              <div className="absolute inset-0 bg-gradient-to-b from-primary-blue/[0.06] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative z-10">
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-blue/15 to-primary-purple/10 ring-1 ring-white/[0.06] transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary-blue/10">

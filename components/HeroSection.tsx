@@ -23,17 +23,32 @@ export default function HeroSection() {
     <section id="hero" className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
       {/* Background glow effects */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 h-[400px] w-[400px] md:h-[600px] md:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.10] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] md:h-[500px] md:w-[500px] rounded-full bg-primary-purple/[0.10] blur-[150px]" />
+        <div className="absolute top-1/4 left-1/2 h-[400px] w-[400px] md:h-[600px] md:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.12] blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] md:h-[500px] md:w-[500px] rounded-full bg-primary-purple/[0.12] blur-[150px]" />
+
+        {/* Animated floating orbs */}
         <motion.div
-          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          animate={{ y: [0, -30, 0], x: [0, 15, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/4 h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full bg-primary-blue/[0.05] blur-[80px]"
+          className="absolute top-1/3 left-1/4 h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full bg-primary-blue/[0.06] blur-[80px]"
         />
         <motion.div
-          animate={{ y: [0, 15, 0], x: [0, -10, 0] }}
+          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/3 right-1/3 h-[120px] w-[120px] md:h-[200px] md:w-[200px] rounded-full bg-primary-purple/[0.06] blur-[80px]"
+          className="absolute bottom-1/3 right-1/3 h-[120px] w-[120px] md:h-[200px] md:w-[200px] rounded-full bg-primary-purple/[0.07] blur-[80px]"
+        />
+
+        {/* Large decorative glowing rings */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="hero-ring absolute top-1/2 left-1/2 h-[500px] w-[500px] md:h-[700px] md:w-[700px] -translate-x-1/2 -translate-y-1/2"
+        />
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+          className="hero-ring absolute top-1/2 left-1/2 h-[650px] w-[650px] md:h-[900px] md:w-[900px] -translate-x-1/2 -translate-y-1/2 opacity-50"
+          style={{ borderColor: "rgba(180, 79, 255, 0.1)" }}
         />
       </div>
 

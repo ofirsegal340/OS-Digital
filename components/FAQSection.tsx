@@ -65,7 +65,7 @@ export default function FAQSection() {
           <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
             שאלות ותשובות
           </span>
-          <h2 className="text-3xl font-bold md:text-4xl">
+          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
             שאלות נפוצות
           </h2>
         </motion.div>

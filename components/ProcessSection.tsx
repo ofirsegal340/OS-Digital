@@ -55,64 +55,47 @@ export default function ProcessSection() {
           <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
             תהליך העבודה
           </span>
-          <h2 className="text-3xl font-bold md:text-4xl">
+          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
             איך תראה העבודה שלנו ביחד
           </h2>
         </motion.div>
 
-        {/* Steps */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-stretch md:gap-0">
-          {steps.map((step, i) => (
-            <div key={step.number} className="flex md:flex-1 md:items-center">
-              {/* Card */}
+        {/* Steps — timeline layout */}
+        <div className="relative">
+          {/* Connecting line — desktop horizontal */}
+          <div className="pointer-events-none absolute top-[34px] right-[5%] left-[5%] hidden h-[2px] md:block" style={{ background: `linear-gradient(90deg, transparent, ${BRAND_BLUE}40, ${BRAND_BLUE}20, transparent)` }} />
+
+          {/* Connecting line — mobile vertical */}
+          <div className="pointer-events-none absolute top-0 bottom-0 right-[26px] w-[2px] md:hidden" style={{ background: `linear-gradient(180deg, transparent, ${BRAND_BLUE}30, ${BRAND_BLUE}30, transparent)` }} />
+
+          <div className="flex flex-col gap-8 md:flex-row md:gap-5">
+            {steps.map((step, i) => (
               <motion.div
+                key={step.number}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-                className="glass-card group relative flex-1 overflow-hidden p-6 transition-all duration-500 hover:border-primary-blue/20 hover:shadow-xl hover:shadow-primary-blue/[0.05]"
+                transition={{ duration: 0.5, delay: i * 0.12, ease: "easeOut" }}
+                className="group relative flex gap-5 md:flex-1 md:flex-col md:gap-0"
               >
-                {/* Top gradient accent */}
-                <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-2xl bg-gradient-to-r from-transparent via-primary-blue/60 to-transparent" />
-
                 {/* Step number badge */}
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-cta text-base font-bold text-bg-dark">
+                <div className="relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-gradient-cta text-lg font-bold text-bg-dark shadow-lg shadow-primary-blue/20 ring-4 ring-bg-dark md:mx-auto md:mb-6">
                   {step.number}
                 </div>
 
-                <h3 className="mb-3 text-base font-bold leading-snug md:text-lg">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-text-muted">
-                  {step.description}
-                </p>
+                {/* Card */}
+                <div className="glass-card relative flex-1 overflow-hidden p-5 md:p-6 transition-all duration-500 hover:border-primary-blue/20 hover:shadow-xl hover:shadow-primary-blue/[0.05] md:text-center">
+                  <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary-blue/40 via-primary-purple/20 to-transparent" />
+                  <h3 className="mb-2 text-base font-bold leading-snug md:text-lg">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-text-muted">
+                    {step.description}
+                  </p>
+                </div>
               </motion.div>
-
-              {/* Arrow connector — shown between cards on desktop */}
-              {i < steps.length - 1 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.1 + 0.3 }}
-                  className="hidden md:flex items-center justify-center px-2"
-                  aria-hidden
-                >
-                  {/* RTL: arrow points left */}
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M15 18l-6-6 6-6"
-                      stroke={BRAND_BLUE}
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      opacity="0.7"
-                    />
-                  </svg>
-                </motion.div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
