@@ -73,7 +73,7 @@
   }
 
   .section-divider {
-    @apply mx-auto h-px w-full max-w-6xl;
+    @apply relative mx-auto h-px w-full max-w-6xl;
     background: linear-gradient(
       90deg,
       transparent,
@@ -81,6 +81,56 @@
       rgba(180, 79, 255, 0.2) 70%,
       transparent
     );
+  }
+  .section-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+    background: #00D4FF;
+    box-shadow: 0 0 14px rgba(0, 212, 255, 0.55), 0 0 28px rgba(180, 79, 255, 0.25);
+  }
+
+  /* Aurora mesh background — fixed, slow drift behind the whole page */
+  .aurora-bg {
+    background-image:
+      radial-gradient(60% 50% at 25% 30%, rgba(0, 212, 255, 0.10), transparent 70%),
+      radial-gradient(55% 45% at 75% 70%, rgba(180, 79, 255, 0.10), transparent 72%);
+    background-size: 180% 180%, 200% 200%;
+    background-position: 0% 50%, 100% 50%;
+    background-repeat: no-repeat;
+    animation: aurora-drift 60s linear infinite;
+  }
+
+  /* Subtle dot grid texture (uses radial-gradient dots at 24px intervals) */
+  .dot-grid {
+    background-image: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1.2px
+    );
+    background-size: 24px 24px;
+    opacity: 0.4;
+  }
+
+  /* Elevated glass card with corner light + thicker accent on hover */
+  .glass-card-elevated {
+    @apply relative rounded-2xl border border-white/[0.08] bg-bg-card/80 backdrop-blur-sm;
+    -webkit-backdrop-filter: blur(4px);
+    background-image:
+      linear-gradient(rgba(15, 19, 41, 0.78), rgba(15, 19, 41, 0.78)),
+      radial-gradient(120% 80% at 100% 0%, rgba(0, 212, 255, 0.08), transparent 60%);
+    background-blend-mode: normal;
+    transition: border-color 300ms ease, box-shadow 400ms ease, background-color 300ms ease;
+  }
+  .glass-card-elevated:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 18px 60px -20px rgba(0, 212, 255, 0.18),
+      0 8px 24px -10px rgba(180, 79, 255, 0.12);
   }
 
   /* Sections with a lighter elevated background */
@@ -115,6 +165,8 @@
     );
     background-size: 300% 300%;
     animation: glow-border-shift 6s ease-in-out infinite;
+    box-shadow: 0 30px 80px -30px rgba(0, 212, 255, 0.25),
+      0 15px 50px -20px rgba(180, 79, 255, 0.18);
   }
   .glow-border > * {
     @apply rounded-2xl bg-bg-card;

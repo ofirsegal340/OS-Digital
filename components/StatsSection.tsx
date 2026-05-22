@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { useTilt } from "@/lib/use-tilt";
 
 const stats = [
   { value: "100%", label: "שקיפות מלאה — רואים בדיוק לאן הולך כל שקל" },
@@ -19,9 +20,10 @@ function CountUpStat({
   label: string;
   index: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const inViewRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(inViewRef, { once: true, margin: "-50px" });
   const [displayed, setDisplayed] = useState("");
+  const { ref: tiltRef, handlers } = useTilt<HTMLDivElement>();
 
   useEffect(() => {
     if (!isInView) return;
@@ -53,20 +55,25 @@ function CountUpStat({
 
   return (
     <motion.div
-      ref={ref}
+      ref={inViewRef}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card group relative overflow-hidden p-6 sm:p-8 text-center transition-all duration-500 hover:border-primary-blue/15 hover:shadow-lg hover:shadow-primary-blue/[0.06]"
     >
-      {/* Top border gradient */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent" />
+      <div
+        ref={tiltRef}
+        {...handlers}
+        className="glass-card-elevated group relative overflow-hidden p-6 sm:p-8 text-center will-change-transform"
+      >
+        {/* Top border gradient */}
+        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent transition-all duration-500 group-hover:h-[3px] group-hover:via-primary-blue/60" />
 
-      <p className="mb-4 text-4xl font-extrabold text-gradient md:text-5xl lg:text-6xl tracking-tight">
-        {displayed || value}
-      </p>
-      <p className="text-sm sm:text-base leading-relaxed text-text-muted">{label}</p>
+        <p className="font-display mb-4 text-5xl font-bold text-gradient md:text-6xl lg:text-7xl tracking-tight">
+          {displayed || value}
+        </p>
+        <p className="text-sm sm:text-base leading-relaxed text-text-muted">{label}</p>
+      </div>
     </motion.div>
   );
 }
@@ -74,10 +81,8 @@ function CountUpStat({
 export default function StatsSection() {
   return (
     <section id="stats" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
-      {/* Large gradient background band */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-primary-blue/[0.03] to-transparent" />
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[300px] w-[400px] md:h-[500px] md:w-[700px] rounded-full bg-primary-blue/[0.06] blur-[150px]" />
-      <div className="pointer-events-none absolute top-0 left-1/4 h-[200px] w-[300px] md:h-[400px] md:w-[500px] rounded-full bg-primary-purple/[0.05] blur-[120px]" />
+      {/* Single anchoring blob (aurora handles the rest globally) */}
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[280px] w-[380px] md:h-[420px] md:w-[600px] rounded-full bg-primary-blue/[0.05] blur-[140px]" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div
@@ -87,10 +92,13 @@ export default function StatsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            למה אנחנו
+          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+            03 / WHY US
           </span>
-          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
+          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
+            למה אנחנו
+          </div>
+          <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             למה OS Digital
           </h2>
         </motion.div>

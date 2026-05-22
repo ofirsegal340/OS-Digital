@@ -62,10 +62,13 @@ export default function FAQSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            שאלות ותשובות
+          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+            05 / FAQ
           </span>
-          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
+          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
+            שאלות ותשובות
+          </div>
+          <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             שאלות נפוצות
           </h2>
         </motion.div>

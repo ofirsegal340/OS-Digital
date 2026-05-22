@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   XCircle,
   Check,
+  Lock,
 } from "lucide-react";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { trackEvent, trackPixelEvent } from "@/lib/analytics";
@@ -91,7 +92,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-4 py-3 text-base text-white placeholder:text-text-muted/60 transition-all duration-300 focus:border-primary-blue/40 focus:outline-none focus:ring-2 focus:ring-primary-blue/10 focus:bg-bg-card";
+    "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-4 py-3 text-base text-white placeholder:text-text-muted/60 transition-all duration-300 focus:border-primary-blue/50 focus:outline-none focus:ring-2 focus:ring-primary-blue/30 focus:bg-bg-card";
 
   const labelClasses = "mb-1.5 block text-base font-medium text-white/80";
 
@@ -102,6 +103,8 @@ export default function ContactForm() {
     >
       {/* Background glow */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] md:h-[500px] md:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.05] blur-[120px]" />
+      {/* Subtle dot grid texture */}
+      <div className="dot-grid pointer-events-none absolute inset-0" />
 
       <div className="relative mx-auto max-w-xl">
         <motion.div
@@ -111,10 +114,15 @@ export default function ContactForm() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div className="mb-8 md:mb-10 text-center">
-            <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-              צרו קשר
+            <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+              06 / CONTACT
             </span>
-            <h2 className="mb-4 text-3xl font-bold text-gradient md:text-4xl">בואו נדבר</h2>
+            <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
+              צרו קשר
+            </div>
+            <h2 className="font-display mb-4 text-4xl font-medium tracking-tight text-gradient md:text-5xl">
+              בואו נדבר
+            </h2>
             <p className="text-base text-text-muted">
               השאירו פרטים ונחזור אליכם תוך 24 שעות
             </p>
@@ -341,6 +349,11 @@ export default function ContactForm() {
                     <MessageCircle className="h-4 w-4" />
                     דברו איתנו בוואטסאפ
                   </a>
+
+                  <p className="flex items-center justify-center gap-2 pt-2 text-xs text-text-muted/80">
+                    <Lock className="h-3 w-3 text-primary-blue/70" />
+                    המידע שלך מוצפן ולא נמסר לצד שלישי
+                  </p>
                 </div>
               </form>
             </div>

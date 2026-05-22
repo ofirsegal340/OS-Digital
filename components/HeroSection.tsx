@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
+import { ChevronDown, MessageCircle } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function HeroSection() {
@@ -21,46 +21,18 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
-      {/* Background glow effects */}
+      {/* Background glow effects — anchor blob + single slow ring */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 h-[400px] w-[400px] md:h-[600px] md:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.12] blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-[300px] w-[300px] md:h-[500px] md:w-[500px] rounded-full bg-primary-purple/[0.12] blur-[150px]" />
-
-        {/* Animated floating orbs */}
-        <motion.div
-          animate={{ y: [0, -30, 0], x: [0, 15, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 left-1/4 h-[150px] w-[150px] md:h-[250px] md:w-[250px] rounded-full bg-primary-blue/[0.06] blur-[80px]"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-1/3 right-1/3 h-[120px] w-[120px] md:h-[200px] md:w-[200px] rounded-full bg-primary-purple/[0.07] blur-[80px]"
-        />
-
-        {/* Large decorative glowing rings */}
+        <div className="absolute top-1/3 left-1/2 h-[360px] w-[360px] md:h-[620px] md:w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.10] blur-[150px]" />
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="hero-ring absolute top-1/2 left-1/2 h-[500px] w-[500px] md:h-[700px] md:w-[700px] -translate-x-1/2 -translate-y-1/2"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          className="hero-ring absolute top-1/2 left-1/2 h-[650px] w-[650px] md:h-[900px] md:w-[900px] -translate-x-1/2 -translate-y-1/2 opacity-50"
-          style={{ borderColor: "rgba(180, 79, 255, 0.1)" }}
+          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+          className="hero-ring absolute top-1/2 left-1/2 h-[560px] w-[560px] md:h-[820px] md:w-[820px] -translate-x-1/2 -translate-y-1/2"
         />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      {/* Dot grid texture overlay */}
+      <div className="dot-grid pointer-events-none absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.span
@@ -76,7 +48,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="mb-5 md:mb-7 text-3xl font-bold leading-[1.2] md:text-5xl lg:text-6xl"
+          className="font-display mb-5 md:mb-7 text-4xl font-medium leading-[1.15] tracking-tight md:text-6xl lg:text-7xl"
         >
           קידום ממומן שמפסיק לבזבז
           <br />
@@ -123,6 +95,17 @@ export default function HeroSection() {
             <MessageCircle size={18} />
             דברו איתנו בוואטסאפ
           </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          className="mt-14 hidden flex-col items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/40 md:flex"
+          aria-hidden="true"
+        >
+          <span>גלילה</span>
+          <ChevronDown className="h-4 w-4 animate-scroll-cue text-primary-blue/70" />
         </motion.div>
       </div>
     </section>

@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTilt } from "@/lib/use-tilt";
 
 export default function CertificateSection() {
+  const { ref, handlers } = useTilt<HTMLDivElement>();
+
   return (
     <section
       id="certificate"
@@ -20,10 +23,13 @@ export default function CertificateSection() {
           transition={{ duration: 0.5 }}
           className="mb-10 text-center"
         >
-          <span className="mb-4 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            הסמכה מקצועית
+          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+            04 / CERTIFICATIONS
           </span>
-          <h2 className="text-3xl font-bold text-gradient md:text-4xl">
+          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
+            הסמכה מקצועית
+          </div>
+          <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             הסמכות מקצועיות
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base text-text-muted">
@@ -37,23 +43,28 @@ export default function CertificateSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="glass-card relative overflow-hidden border-primary-blue/15 shadow-xl shadow-primary-blue/[0.06]"
         >
-          {/* Top accent line */}
-          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/50 to-transparent" />
+          <div
+            ref={ref}
+            {...handlers}
+            className="glass-card-elevated relative overflow-hidden border-primary-blue/15 shadow-xl shadow-primary-blue/[0.06] will-change-transform"
+          >
+            {/* Top accent line */}
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/50 to-transparent" />
 
-          <div className="w-full" style={{ minHeight: "min(620px, 85vh)" }}>
-            <iframe
-              frameBorder="0"
-              scrolling="no"
-              width="100%"
-              height="100%"
-              src="https://learn.eilon.co/certificate-embed/UkiOv5eQsGTXZvEOR2bWVta2UAr2-2/EvBhx6C2pJTwnhX7ziui/kWjRAgXUVafGP1cvspObEgoXz9s1"
-              allowFullScreen
-              className="block w-full"
-              style={{ minHeight: "min(620px, 85vh)" }}
-              title="תעודת הסמכה מקצועית"
-            />
+            <div className="w-full" style={{ minHeight: "min(620px, 85vh)" }}>
+              <iframe
+                frameBorder="0"
+                scrolling="no"
+                width="100%"
+                height="100%"
+                src="https://learn.eilon.co/certificate-embed/UkiOv5eQsGTXZvEOR2bWVta2UAr2-2/EvBhx6C2pJTwnhX7ziui/kWjRAgXUVafGP1cvspObEgoXz9s1"
+                allowFullScreen
+                className="block w-full"
+                style={{ minHeight: "min(620px, 85vh)" }}
+                title="תעודת הסמכה מקצועית"
+              />
+            </div>
           </div>
         </motion.div>
       </div>

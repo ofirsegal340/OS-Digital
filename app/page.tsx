@@ -40,6 +40,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <div className="aurora-bg pointer-events-none fixed inset-0 -z-10" aria-hidden="true" />
       <Navbar />
       <main>
         <HeroSection />
