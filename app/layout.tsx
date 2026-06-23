@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Frank_Ruhl_Libre } from "next/font/google";
+import { Heebo } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-sans",
-});
-
-const frankRuhlLibre = Frank_Ruhl_Libre({
-  subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "700", "900"],
-  display: "swap",
-  variable: "--font-display",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://osdigitalagency.com";
@@ -76,7 +70,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#0A0E1A",
+    "theme-color": "#080B14",
   },
 };
 
@@ -86,8 +80,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="he" dir="rtl" className={`${inter.variable} ${frankRuhlLibre.variable}`}>
-      <body className={inter.className}>
+    <html lang="he" dir="rtl" className={heebo.variable}>
+      <body className={heebo.className}>
         {children}
 
         {/* Meta Pixel */}

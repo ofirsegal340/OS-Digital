@@ -107,12 +107,9 @@ export default function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
-            02 / PROCESS
+          <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+            03 / PROCESS
           </span>
-          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            תהליך העבודה
-          </div>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             איך תראה העבודה שלנו ביחד
           </h2>
@@ -128,10 +125,10 @@ export default function ProcessSection() {
           >
             <defs>
               <linearGradient id="process-line" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgba(0,212,255,0)" />
-                <stop offset="20%" stopColor="rgba(0,212,255,0.45)" />
-                <stop offset="80%" stopColor="rgba(180,79,255,0.35)" />
-                <stop offset="100%" stopColor="rgba(180,79,255,0)" />
+                <stop offset="0%" stopColor="rgba(61,189,247,0)" />
+                <stop offset="20%" stopColor="rgba(61,189,247,0.45)" />
+                <stop offset="80%" stopColor="rgba(123,108,240,0.35)" />
+                <stop offset="100%" stopColor="rgba(123,108,240,0)" />
               </linearGradient>
             </defs>
             <line
@@ -150,7 +147,7 @@ export default function ProcessSection() {
             className="pointer-events-none absolute top-0 bottom-0 right-[30px] w-[2px] md:hidden"
             style={{
               backgroundImage:
-                "linear-gradient(180deg, rgba(0,212,255,0) 0%, rgba(0,212,255,0.35) 20%, rgba(180,79,255,0.25) 80%, rgba(180,79,255,0) 100%)",
+                "linear-gradient(180deg, rgba(61,189,247,0) 0%, rgba(61,189,247,0.35) 20%, rgba(123,108,240,0.25) 80%, rgba(123,108,240,0) 100%)",
             }}
           />
 

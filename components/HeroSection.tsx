@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function HeroSection() {
@@ -95,17 +95,6 @@ export default function HeroSection() {
             <MessageCircle size={18} />
             דברו איתנו בוואטסאפ
           </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-          className="mt-14 hidden flex-col items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/40 md:flex"
-          aria-hidden="true"
-        >
-          <span>גלילה</span>
-          <ChevronDown className="h-4 w-4 animate-scroll-cue text-primary-blue/70" />
         </motion.div>
       </div>
     </section>

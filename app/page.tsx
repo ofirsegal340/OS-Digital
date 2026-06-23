@@ -4,9 +4,10 @@ import HeroSection from "@/components/HeroSection";
 
 const PlatformsBar = dynamic(() => import("@/components/PlatformsBar"));
 const ServicesSection = dynamic(() => import("@/components/ServicesSection"));
+const OfferSection = dynamic(() => import("@/components/OfferSection"));
 const ProcessSection = dynamic(() => import("@/components/ProcessSection"));
 const StatsSection = dynamic(() => import("@/components/StatsSection"));
-const CertificateSection = dynamic(() => import("@/components/CertificateSection"));
+const AboutSection = dynamic(() => import("@/components/AboutSection"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
 const ContactForm = dynamic(() => import("@/components/ContactForm"));
 const Footer = dynamic(() => import("@/components/Footer"));
@@ -48,13 +49,15 @@ export default function Home() {
         <ServicesSection />
         <div className="section-divider" />
         <div className="section-elevated">
-          <ProcessSection />
+          <OfferSection />
         </div>
+        <div className="section-divider" />
+        <ProcessSection />
         <div className="section-divider" />
         <StatsSection />
         <div className="section-divider" />
         <div className="section-elevated">
-          <CertificateSection />
+          <AboutSection />
         </div>
         <div className="section-divider" />
         <FAQSection />

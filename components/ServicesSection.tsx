@@ -110,12 +110,9 @@ export default function ServicesSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+          <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
             01 / SERVICES
           </span>
-          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            השירותים שלנו
-          </div>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             מה אנחנו עושים
           </h2>
