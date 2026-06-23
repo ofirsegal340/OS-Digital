@@ -9,19 +9,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          blue: "#00D4FF",
-          purple: "#B44FFF",
+          blue: "#3DBDF7",
+          purple: "#7B6CF0",
         },
-        "light-blue": "#A8E6FF",
-        "bg-dark": "#0A0E1A",
-        "bg-card": "#0F1329",
-        "bg-card-hover": "#141937",
+        "light-blue": "#BAE6FD",
+        "bg-dark": "#080B14",
+        "bg-card": "#0E1322",
+        "bg-card-hover": "#161C30",
         whatsapp: "#25D366",
-        "text-muted": "rgba(255,255,255,0.55)",
+        "text-muted": "rgba(255,255,255,0.62)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Frank Ruhl Libre", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Heebo", "system-ui", "sans-serif"],
+        display: ["var(--font-sans)", "Heebo", "system-ui", "sans-serif"],
       },
       animation: {
         marquee: "marquee 45s linear infinite",
@@ -56,9 +56,9 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-cta":
-          "linear-gradient(135deg, #00D4FF 0%, #B44FFF 100%)",
+          "linear-gradient(135deg, #4FC3FF 0%, #8E7BFF 100%)",
         "gradient-cta-hover":
-          "linear-gradient(135deg, #00E5FF 0%, #C66FFF 100%)",
+          "linear-gradient(135deg, #63CDFF 0%, #A18CFF 100%)",
       },
     },
   },

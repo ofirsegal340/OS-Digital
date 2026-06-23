@@ -92,12 +92,9 @@ export default function StatsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
-            03 / WHY US
+          <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
+            04 / WHY US
           </span>
-          <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-            למה אנחנו
-          </div>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             למה OS Digital
           </h2>

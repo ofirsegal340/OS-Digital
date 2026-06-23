@@ -18,7 +18,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0A0E1A",
+          backgroundColor: "#080B14",
           position: "relative",
           overflow: "hidden",
         }}
@@ -33,7 +33,7 @@ export default async function Image() {
             height: "500px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(61,189,247,0.16) 0%, transparent 70%)",
           }}
         />
         <div
@@ -45,7 +45,7 @@ export default async function Image() {
             height: "400px",
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(180,79,255,0.12) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(123,108,240,0.13) 0%, transparent 70%)",
           }}
         />
 
@@ -58,10 +58,10 @@ export default async function Image() {
             width: "700px",
             height: "700px",
             borderRadius: "50%",
-            border: "1px solid rgba(0,212,255,0.12)",
+            border: "1px solid rgba(61,189,247,0.13)",
             transform: "translate(-50%, -50%)",
             boxShadow:
-              "0 0 60px rgba(0,212,255,0.06), inset 0 0 60px rgba(0,212,255,0.03)",
+              "0 0 60px rgba(61,189,247,0.07), inset 0 0 60px rgba(61,189,247,0.04)",
           }}
         />
 
@@ -88,7 +88,7 @@ export default async function Image() {
             style={{
               fontSize: "72px",
               fontWeight: 800,
-              color: "#00D4FF",
+              color: "#5CC8FF",
               letterSpacing: "-2px",
             }}
           >
@@ -116,7 +116,7 @@ export default async function Image() {
             width: "200px",
             height: "3px",
             borderRadius: "2px",
-            background: "linear-gradient(90deg, #00D4FF, #B44FFF)",
+            background: "linear-gradient(90deg, #5CC8FF, #8E7BFF)",
           }}
         />
 
