@@ -24,6 +24,14 @@
     letter-spacing: -0.015em;
   }
 
+  /* Consistent keyboard focus state across all interactive elements.
+     Follows each element's own border-radius via outline + offset. */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid rgba(61, 189, 247, 0.8);
+    outline-offset: 3px;
+  }
+
   ::selection {
     background-color: rgba(61, 189, 247, 0.32);
     color: #ffffff;

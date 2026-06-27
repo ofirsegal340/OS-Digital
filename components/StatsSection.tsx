@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { useTilt } from "@/lib/use-tilt";
 
 const stats = [
   { value: "100%", label: "שקיפות מלאה — רואים בדיוק לאן הולך כל שקל" },
@@ -15,15 +14,16 @@ function CountUpStat({
   value,
   label,
   index,
+  accent,
 }: {
   value: string;
   label: string;
   index: number;
+  accent: boolean;
 }) {
   const inViewRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(inViewRef, { once: true, margin: "-50px" });
   const [displayed, setDisplayed] = useState("");
-  const { ref: tiltRef, handlers } = useTilt<HTMLDivElement>();
 
   useEffect(() => {
     if (!isInView) return;
@@ -56,24 +56,22 @@ function CountUpStat({
   return (
     <motion.div
       ref={inViewRef}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="text-center md:px-6"
     >
-      <div
-        ref={tiltRef}
-        {...handlers}
-        className="glass-card-elevated group relative overflow-hidden p-6 sm:p-8 text-center will-change-transform"
+      <p
+        className={`font-display text-5xl font-extrabold leading-none tracking-tighter md:text-7xl ${
+          accent ? "text-gradient" : "text-white"
+        }`}
       >
-        {/* Top border gradient */}
-        <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary-blue/40 to-transparent transition-all duration-500 group-hover:h-[3px] group-hover:via-primary-blue/60" />
-
-        <p className="font-display mb-4 text-5xl font-bold text-gradient md:text-6xl lg:text-7xl tracking-tight">
-          {displayed || value}
-        </p>
-        <p className="text-sm sm:text-base leading-relaxed text-text-muted">{label}</p>
-      </div>
+        {displayed || value}
+      </p>
+      <p className="mx-auto mt-4 max-w-[22ch] text-sm leading-relaxed text-text-muted">
+        {label}
+      </p>
     </motion.div>
   );
 }
@@ -90,7 +88,7 @@ export default function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-12 md:mb-16 text-center"
         >
           <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
             04 / WHY US
@@ -100,9 +98,10 @@ export default function StatsSection() {
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Editorial stat band: solid extrabold numerals, hairline dividers, one gradient focal point */}
+        <div className="grid grid-cols-2 gap-y-12 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-x-reverse md:divide-white/[0.08]">
           {stats.map((stat, i) => (
-            <CountUpStat key={stat.value} index={i} {...stat} />
+            <CountUpStat key={stat.value} index={i} accent={i === 0} {...stat} />
           ))}
         </div>
       </div>
