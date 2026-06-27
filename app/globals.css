@@ -24,6 +24,14 @@
     letter-spacing: -0.015em;
   }
 
+  /* Consistent keyboard focus state across all interactive elements.
+     Follows each element's own border-radius via outline + offset. */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid rgba(61, 189, 247, 0.8);
+    outline-offset: 3px;
+  }
+
   ::selection {
     background-color: rgba(61, 189, 247, 0.32);
     color: #ffffff;
@@ -43,13 +51,11 @@
   }
 
   .glow-blue {
-    box-shadow: 0 0 40px rgba(61, 189, 247, 0.16),
-      0 0 80px rgba(61, 189, 247, 0.06);
+    box-shadow: 0 0 32px rgba(61, 189, 247, 0.10);
   }
 
   .glow-purple {
-    box-shadow: 0 0 40px rgba(123, 108, 240, 0.16),
-      0 0 80px rgba(123, 108, 240, 0.06);
+    box-shadow: 0 0 32px rgba(123, 108, 240, 0.10);
   }
 
   .glass {
@@ -74,14 +80,17 @@
     background: linear-gradient(
       105deg,
       transparent 40%,
-      rgba(255, 255, 255, 0.25) 45%,
-      rgba(255, 255, 255, 0.35) 50%,
-      rgba(255, 255, 255, 0.25) 55%,
+      rgba(255, 255, 255, 0.16) 45%,
+      rgba(255, 255, 255, 0.24) 50%,
+      rgba(255, 255, 255, 0.16) 55%,
       transparent 60%
     );
     -webkit-transform: translateX(-200%);
     transform: translateX(-200%);
-    animation: btn-shine-sweep 4s ease-in-out infinite;
+  }
+  /* Quieter: sweep once on hover instead of looping forever */
+  .btn-shine:hover::after {
+    animation: btn-shine-sweep 2s ease-out;
   }
 
   .section-divider {
@@ -110,8 +119,8 @@
   /* Aurora mesh background — fixed, slow drift behind the whole page */
   .aurora-bg {
     background-image:
-      radial-gradient(60% 50% at 25% 30%, rgba(61, 189, 247, 0.11), transparent 70%),
-      radial-gradient(55% 45% at 75% 70%, rgba(123, 108, 240, 0.11), transparent 72%);
+      radial-gradient(60% 50% at 25% 30%, rgba(61, 189, 247, 0.07), transparent 70%),
+      radial-gradient(55% 45% at 75% 70%, rgba(123, 108, 240, 0.07), transparent 72%);
     background-size: 180% 180%, 200% 200%;
     background-position: 0% 50%, 100% 50%;
     background-repeat: no-repeat;
@@ -126,7 +135,7 @@
       transparent 1.2px
     );
     background-size: 24px 24px;
-    opacity: 0.4;
+    opacity: 0.22;
   }
 
   /* Elevated glass card with corner light + thicker accent on hover */
@@ -176,9 +185,7 @@
       rgba(123, 108, 240, 0.42)
     );
     background-size: 300% 300%;
-    animation: glow-border-shift 6s ease-in-out infinite;
-    box-shadow: 0 30px 80px -30px rgba(61, 189, 247, 0.26),
-      0 15px 50px -20px rgba(123, 108, 240, 0.20);
+    box-shadow: 0 24px 60px -34px rgba(61, 189, 247, 0.16);
   }
   .glow-border > * {
     @apply rounded-2xl bg-bg-card;
@@ -192,11 +199,6 @@
       0 0 40px rgba(61, 189, 247, 0.09),
       inset 0 0 40px rgba(61, 189, 247, 0.05);
   }
-}
-
-@keyframes glow-border-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 @keyframes btn-shine-sweep {

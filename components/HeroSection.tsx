@@ -23,7 +23,7 @@ export default function HeroSection() {
     <section id="hero" className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 sm:px-6 pt-20">
       {/* Background glow effects — anchor blob + single slow ring */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 h-[360px] w-[360px] md:h-[620px] md:w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.10] blur-[150px]" />
+        <div className="absolute top-1/3 left-1/2 h-[360px] w-[360px] md:h-[620px] md:w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.06] blur-[150px]" />
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}

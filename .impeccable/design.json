@@ -1,0 +1,42 @@
+{
+  "name": "OS Digital",
+  "source": "scanned from app/globals.css, tailwind.config.ts, app/layout.tsx, components/*",
+  "voice": "Spatial Glass Pro",
+  "register": "brand",
+  "effects": {
+    "glassClasses": ["glass", "glass-card", "glass-card-elevated", "glow-border"],
+    "glow": {
+      "blue": "0 0 40px rgba(61,189,247,0.16), 0 0 80px rgba(61,189,247,0.06)",
+      "purple": "0 0 40px rgba(123,108,240,0.16), 0 0 80px rgba(123,108,240,0.06)"
+    },
+    "backgroundTextures": ["aurora-bg", "dot-grid", "section-divider", "section-elevated"],
+    "gradientText": {
+      "class": "text-gradient",
+      "value": "linear-gradient(135deg, #5CC8FF 0%, #8E7BFF 100%)",
+      "usage": "headline emphasis only, never body copy"
+    },
+    "selection": "rgba(61,189,247,0.32) on #FFFFFF"
+  },
+  "animations": {
+    "aurora-drift": "60s linear infinite",
+    "glow-pulse": "3s ease-in-out infinite",
+    "glow-border-shift": "6s ease-in-out infinite",
+    "btn-shine-sweep": "4s ease-in-out infinite",
+    "marquee": "45s linear infinite",
+    "scroll-cue": "2.4s ease-in-out infinite",
+    "reducedMotion": "all animation/transition collapsed to ~0ms via prefers-reduced-motion"
+  },
+  "layout": {
+    "container": "max-w-6xl (72rem)",
+    "spacingScalePx": [4, 8, 12, 16, 24, 32, 48, 64, 96],
+    "direction": "rtl",
+    "lang": "he",
+    "phoneInputDir": "ltr"
+  },
+  "sections": [
+    "Navbar", "HeroSection", "PlatformsBar", "ServicesSection", "OfferSection",
+    "ProcessSection", "StatsSection", "AboutSection", "FAQSection", "ContactForm", "Footer"
+  ],
+  "tracking": ["Meta Pixel", "GA4"],
+  "notes": "Glass + gradient-text are intentional brand signatures here (Spatial Glass Pro), which override impeccable's global default-bans on glassmorphism and gradient text. Keep both purposeful, not decorative."
+}

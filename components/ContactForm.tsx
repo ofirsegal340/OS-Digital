@@ -92,7 +92,7 @@ export default function ContactForm() {
   };
 
   const inputClasses =
-    "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-4 py-3 text-base text-white placeholder:text-text-muted/60 transition-all duration-300 focus:border-primary-blue/50 focus:outline-none focus:ring-2 focus:ring-primary-blue/30 focus:bg-bg-card";
+    "w-full rounded-xl border border-white/[0.08] bg-bg-card/80 px-4 py-3 text-base text-white placeholder:text-text-muted transition-all duration-300 focus:border-primary-blue/50 focus:outline-none focus:ring-2 focus:ring-primary-blue/30 focus:bg-bg-card";
 
   const labelClasses = "mb-1.5 block text-base font-medium text-white/80";
 
@@ -350,7 +350,7 @@ export default function ContactForm() {
                     דברו איתנו בוואטסאפ
                   </a>
 
-                  <p className="flex items-center justify-center gap-2 pt-2 text-xs text-text-muted/80">
+                  <p className="flex items-center justify-center gap-2 pt-2 text-xs text-text-muted">
                     <Lock className="h-3 w-3 text-primary-blue/70" />
                     המידע שלך מוצפן ולא נמסר לצד שלישי
                   </p>
