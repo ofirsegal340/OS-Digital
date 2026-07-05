@@ -118,9 +118,6 @@ export default function OfferSection() {
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
             מה אתה מקבל כשאנחנו עובדים ביחד
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-muted lg:text-lg">
-            לא רשימת מכולת — התחייבות.
-          </p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
