@@ -8,9 +8,10 @@ const navLinks = [
   { label: "ראשי", href: "#hero" },
   { label: "שירותים", href: "#services" },
   { label: "ההצעה", href: "#offer" },
+  { label: "תהליך", href: "#process" },
   { label: "עליי", href: "#about" },
   { label: "שאלות נפוצות", href: "#faq" },
-  { label: "צרו קשר", href: "#contact" },
+  { label: "בדיקת התאמה", href: "#contact" },
 ];
 
 const NAVBAR_HEIGHT = 80;
@@ -93,7 +94,7 @@ export default function Navbar() {
             onClick={() => handleNav("#contact")}
             className="btn-shine rounded-full bg-gradient-cta px-6 py-2.5 text-sm font-medium text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-blue/25"
           >
-            השאירו פרטים
+            לבדיקת התאמה
           </button>
         </div>
 
@@ -148,7 +149,7 @@ export default function Navbar() {
               onClick={() => handleNav("#contact")}
               className="mt-2 rounded-full bg-gradient-cta py-3 text-center text-sm font-medium text-bg-dark"
             >
-              השאירו פרטים
+              לבדיקת התאמה
             </button>
           </div>
         </div>

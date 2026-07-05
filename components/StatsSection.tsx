@@ -6,7 +6,7 @@ import { useTilt } from "@/lib/use-tilt";
 
 const stats = [
   { value: "100%", label: "שקיפות מלאה — רואים בדיוק לאן הולך כל שקל" },
-  { value: "6+", label: "פלטפורמות פרסום בניהול אחד מרוכז" },
+  { value: "1", label: "דוח מסודר כל שבוע — בלי לרדוף אחרי אף אחד" },
   { value: "72h", label: "זמן מהחתימה להשקת הקמפיין הראשון" },
   { value: "אפס", label: "עמלות נסתרות — מה שמוסכם זה מה שמשלמים" },
 ];
@@ -93,10 +93,10 @@ export default function StatsSection() {
           className="mb-16 text-center"
         >
           <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
-            04 / WHY US
+            06 / WHY US
           </span>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
-            למה OS Digital
+            השורה התחתונה, במספרים שתלויים רק בי
           </h2>
         </motion.div>
 

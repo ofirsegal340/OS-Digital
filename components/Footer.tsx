@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-text-muted">
-              קידום ממומן שמביא תוצאות לעסקים קטנים ובינוניים
+              שיווק דיגיטלי באחריות מלאה — קידום ממומן, סושיאל, אתרים ושיווק 360
             </p>
           </div>
 
