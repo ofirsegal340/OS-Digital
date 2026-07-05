@@ -38,7 +38,7 @@ const deliverables: {
     number: "04",
     title: "שקיפות מלאה, אפס הפתעות",
     description:
-      "דוח מסודר כל שבוע, בלי עמלות נסתרות, והכל מעוגן בחוזה מסודר שמגן על שני הצדדים. רואים בדיוק לאן הולך כל שקל.",
+      "דוח מסודר כל שבוע, בלי עמלות נסתרות — רואים בדיוק לאן הולך כל שקל.",
   },
 ];
 
@@ -119,7 +119,7 @@ export default function OfferSection() {
             מה אתה מקבל כשאנחנו עובדים ביחד
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-muted lg:text-lg">
-            לא רשימת מכולת — התחייבות. כל סעיף כאן מעוגן בחוזה.
+            לא רשימת מכולת — התחייבות.
           </p>
         </motion.div>
 

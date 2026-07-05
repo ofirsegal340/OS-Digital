@@ -43,7 +43,7 @@ export default function ObjectionSection() {
           className="mx-auto max-w-2xl text-base leading-relaxed text-text-muted md:text-lg"
         >
           ואתה צודק שאתה חושב ככה. בדיוק בגלל זה אצלי הכל הפוך: יעדים כתובים
-          בחוזה לפני ששילמת שקל, דוח כל שבוע, ואם לא הגענו ליעדים — אני ממשיך
+          לפני ששילמת שקל, דוח כל שבוע, ואם לא הגענו ליעדים — אני ממשיך
           לעבוד בלי דמי ניהול.{" "}
           <span className="font-semibold text-white">
             כשהסיכון עליי, אני לא יכול להרשות לעצמי לשרוף לך תקציב.
