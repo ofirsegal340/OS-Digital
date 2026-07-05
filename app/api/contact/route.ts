@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { contactSchema } from "@/lib/validations";
+import { contactSchema, compactLeadSchema } from "@/lib/validations";
 
 const MAKE_WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL;
 
@@ -43,19 +43,53 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: true });
     }
 
+    if (!MAKE_WEBHOOK_URL) {
+      return NextResponse.json(
+        { error: "Server misconfigured" },
+        { status: 500 }
+      );
+    }
+
+    // Compact fit-check variant — name + phone only
+    if (body.variant === "compact") {
+      const compactParsed = compactLeadSchema.safeParse(body);
+      if (!compactParsed.success) {
+        return NextResponse.json(
+          { error: "Invalid data", details: compactParsed.error.flatten() },
+          { status: 400 }
+        );
+      }
+
+      const res = await fetch(MAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: compactParsed.data.fullName,
+          email: "",
+          phone: compactParsed.data.phone,
+          businessName: "",
+          message:
+            "טופס בדיקת התאמה מקוצר — " +
+            (typeof body.location === "string" ? body.location : ""),
+        }),
+      });
+
+      if (!res.ok) {
+        return NextResponse.json(
+          { error: "Failed to submit" },
+          { status: 502 }
+        );
+      }
+
+      return NextResponse.json({ success: true });
+    }
+
     // Validate
     const parsed = contactSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
         { error: "Invalid data", details: parsed.error.flatten() },
         { status: 400 }
-      );
-    }
-
-    if (!MAKE_WEBHOOK_URL) {
-      return NextResponse.json(
-        { error: "Server misconfigured" },
-        { status: 500 }
       );
     }
 

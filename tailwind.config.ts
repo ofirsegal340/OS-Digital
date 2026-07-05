@@ -18,6 +18,8 @@ const config: Config = {
         "bg-card-hover": "#161C30",
         whatsapp: "#25D366",
         "text-muted": "rgba(255,255,255,0.62)",
+        negative: "#F87171",
+        "negative-dim": "rgba(248,113,113,0.12)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Heebo", "system-ui", "sans-serif"],

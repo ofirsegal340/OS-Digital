@@ -101,6 +101,8 @@ export default function ContactForm() {
       id="contact"
       className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden"
     >
+      {/* Full-width accent band */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-blue/[0.06] to-transparent" />
       {/* Background glow */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[300px] w-[300px] md:h-[500px] md:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-blue/[0.05] blur-[120px]" />
       {/* Subtle dot grid texture */}
@@ -115,16 +117,20 @@ export default function ContactForm() {
         >
           <div className="mb-8 md:mb-10 text-center">
             <span className="font-display mb-2 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
-              06 / CONTACT
+              08 / FIT CHECK
             </span>
             <div className="mb-4 mt-2 inline-block text-sm font-medium tracking-widest text-primary-blue uppercase">
-              צרו קשר
+              בדיקת התאמה
             </div>
+            <p className="mb-3 text-base leading-relaxed text-text-muted">
+              תאר לעצמך שבעוד חודש אתה פותח דוח — ומבין בדיוק כמה כל שקל החזיר.
+            </p>
             <h2 className="font-display mb-4 text-4xl font-medium tracking-tight text-gradient md:text-5xl">
-              בואו נדבר
+              בוא נבדוק אם אנחנו מתאימים
             </h2>
             <p className="text-base text-text-muted">
-              השאירו פרטים ונחזור אליכם תוך 24 שעות
+              ממלאים פרטים, אני חוזר אליך תוך 24 שעות עם תשובה כנה — גם אם היא
+              &quot;לא&quot;
             </p>
           </div>
 
@@ -330,7 +336,7 @@ export default function ContactForm() {
                     )}
                     {status === "loading"
                       ? "שולח..."
-                      : "שלחו — ניצור קשר תוך 24 שעות"}
+                      : "שלח לבדיקת התאמה — תשובה תוך 24 שעות"}
                   </button>
 
                   <a

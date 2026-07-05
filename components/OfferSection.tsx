@@ -6,38 +6,47 @@ import type { LucideIcon } from "lucide-react";
 import { useTilt } from "@/lib/use-tilt";
 import { trackEvent } from "@/lib/analytics";
 
-const guarantees: { icon: LucideIcon; title: string; description: string }[] = [
+const deliverables: {
+  icon: LucideIcon;
+  number: string;
+  title: string;
+  description: string;
+}[] = [
   {
     icon: Target,
+    number: "01",
     title: "יעדים מדידים — מראש",
     description:
       "לפני שמתחילים, נגדיר יחד יעדים ומדדים ברורים: עלות לליד, כמות פניות ו-ROAS. הכל שחור על גבי לבן, בלי הבטחות באוויר.",
   },
   {
     icon: ShieldCheck,
+    number: "02",
     title: "אחריות לתוצאות",
     description:
-      "לא הגענו ליעדים שהגדרנו, בזמן שקבענו? אני ממשיך לעבוד על הקמפיין — בלי דמי ניהול נוספים — עד שנגיע אליהם. הסיכון עליי, לא עליך.",
+      "לא הגענו ליעדים שהגדרנו, בזמן שקבענו? אני ממשיך לעבוד על הקמפיין — ב-0₪ דמי ניהול — עד שנגיע אליהם. הסיכון עליי, לא עליך.",
   },
   {
     icon: GraduationCap,
-    title: "אימוני מכירות במתנה",
+    number: "03",
+    title: "אימוני מכירות לצוות",
     description:
       "פניות זה לא מספיק — צריך לסגור אותן. אני אאמן אותך ואת הצוות איך להפוך לידים ללקוחות משלמים, כדי שכל פנייה תהפוך לכסף.",
   },
   {
     icon: Eye,
+    number: "04",
     title: "שקיפות מלאה, אפס הפתעות",
     description:
-      "דוחות ברורים, בלי עמלות נסתרות, והכל מעוגן בחוזה מסודר שמגן על שני הצדדים. רואים בדיוק לאן הולך כל שקל.",
+      "דוח מסודר כל שבוע, בלי עמלות נסתרות, והכל מעוגן בחוזה מסודר שמגן על שני הצדדים. רואים בדיוק לאן הולך כל שקל.",
   },
 ];
 
-function GuaranteeCard({
+function DeliverableCard({
   item,
   index,
 }: {
-  item: (typeof guarantees)[number];
+  item: (typeof deliverables)[number];
   index: number;
 }) {
   const { ref, handlers } = useTilt<HTMLDivElement>();
@@ -57,6 +66,20 @@ function GuaranteeCard({
         className="glass-card-elevated group relative h-full overflow-hidden p-7 will-change-transform hover:border-primary-blue/25"
       >
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary-blue/40 via-primary-purple/30 to-transparent transition-all duration-500 group-hover:h-[3px]" />
+
+        {/* Ghost numeral */}
+        <span
+          className="ghost-number pointer-events-none absolute -top-2 left-3 select-none"
+          aria-hidden="true"
+        >
+          {item.number}
+        </span>
+
+        {/* Included tag */}
+        <span className="absolute top-5 left-5 z-10 rounded-full border border-primary-blue/30 bg-primary-blue/10 px-3 py-1 text-xs font-medium text-primary-blue">
+          כלול
+        </span>
+
         <div className="relative z-10 flex gap-5">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary-blue/15 to-primary-purple/10 ring-1 ring-white/[0.06] transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary-blue/10">
             <Icon className="h-6 w-6 text-primary-blue" strokeWidth={1.75} />
@@ -76,18 +99,6 @@ function GuaranteeCard({
 export default function OfferSection() {
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "972584594488";
 
-  const scrollToForm = () => {
-    trackEvent("CTAClick", {
-      button_name: "offer_cta",
-      button_text: "אני רוצה את ההצעה הזו",
-      location: "offer_section",
-    });
-    const el = document.getElementById("contact");
-    if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
-
   return (
     <section id="offer" className="relative py-16 md:py-28 px-4 sm:px-6 overflow-hidden">
       {/* Background glow */}
@@ -105,34 +116,41 @@ export default function OfferSection() {
             02 / OFFER
           </span>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
-            הצעה שאי אפשר לסרב לה
+            מה אתה מקבל כשאנחנו עובדים ביחד
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-muted lg:text-lg">
-            אני לא מבקש ממך אמון עיוור — אני נותן לך התחייבות. נגדיר יעדים ברורים,
-            ואני לוקח אחריות אישית על זה שנגיע אליהם.
+            לא רשימת מכולת — התחייבות. כל סעיף כאן מעוגן בחוזה.
           </p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {guarantees.map((item, i) => (
-            <GuaranteeCard key={item.title} item={item} index={i} />
+          {deliverables.map((item, i) => (
+            <DeliverableCard key={item.title} item={item} index={i} />
           ))}
         </div>
 
-        {/* CTA strip */}
+        {/* Honest value punchline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-10 text-center text-lg font-bold md:text-xl"
+        >
+          וכל זה במחיר של דמי ניהול בלבד —{" "}
+          <span className="text-gradient border-b-2 border-primary-blue/60 pb-0.5">
+            הסיכון עליי, לא עליך.
+          </span>
+        </motion.p>
+
+        {/* WhatsApp only — the compact fit-check form follows right below */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          className="mt-8 flex justify-center"
         >
-          <button
-            onClick={scrollToForm}
-            className="btn-shine group w-full sm:w-auto rounded-full bg-gradient-cta px-8 py-4 text-sm font-semibold text-bg-dark transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-blue/25"
-          >
-            אני רוצה את ההצעה הזו
-          </button>
           <a
             href={`https://wa.me/${whatsappNumber}`}
             target="_blank"

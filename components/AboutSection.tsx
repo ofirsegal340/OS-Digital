@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileSignature } from "lucide-react";
 import { useTilt } from "@/lib/use-tilt";
 
 /*
@@ -30,8 +29,15 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mx-auto w-full max-w-sm md:mx-0"
+            className="relative mx-auto w-full max-w-sm md:mx-0"
           >
+            {/* Geometric accent blob behind the photo */}
+            <motion.div
+              aria-hidden="true"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              className="blob-accent absolute -bottom-8 -right-8 -z-10 h-[70%] w-[80%]"
+            />
             <div
               ref={ref}
               {...handlers}
@@ -58,8 +64,9 @@ export default function AboutSection() {
             <span className="font-display mb-4 inline-block text-xs tracking-[0.4em] text-primary-blue/60">
               05 / ABOUT
             </span>
-            <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
-              נעים להכיר, אופיר
+            <h2 className="font-display text-4xl font-medium tracking-tight md:text-5xl">
+              אם עדיין לא הכרנו —{" "}
+              <span className="text-gradient">נעים מאוד, אני אופיר סגל.</span>
             </h2>
 
             <div className="mt-6 space-y-4 text-base leading-relaxed text-text-muted lg:text-lg">
@@ -73,20 +80,15 @@ export default function AboutSection() {
                 לקוחות במקביל — אני בוחר לעבוד עם מעט עסקים, ולתת לכל אחד יחס אישי, מקצועי
                 ומבוסס נתונים.
               </p>
+              <p>
+                אני לא אבטיח לך שתכפיל את העסק תוך חודש — מי שמבטיח את זה משקר.{" "}
+                <span className="text-white">
+                  מה שאני כן מבטיח: יעדים כתובים, עבודה שקופה, ואחריות אישית שלי
+                  להגיע אליהם.
+                </span>
+              </p>
             </div>
 
-            {/* Contract note */}
-            <div className="glass-card mt-8 flex gap-4 p-5">
-              <FileSignature className="h-6 w-6 shrink-0 text-primary-blue" strokeWidth={1.75} />
-              <div>
-                <h3 className="mb-1 font-semibold text-white">ולגבי חוזה</h3>
-                <p className="text-base leading-relaxed text-text-muted">
-                  אני תמיד עובד עם חוזה מסודר — לא כדי לכבול אותך אליי, אלא בדיוק להפך: כדי
-                  שלשנינו יהיה ברור מה מקבלים, מה היעדים ומה מצופה. חוזה ברור מונע אי-הבנות,
-                  ויכוחים ובתי משפט, והוא ההגנה הכי טובה של הלקוח. בלי חוזה מסודר — לא מתחילים.
-                </p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

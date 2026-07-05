@@ -1,34 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Megaphone, Target, BarChart3, Paintbrush } from "lucide-react";
+import { Megaphone, Share2, MonitorSmartphone, Compass } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useTilt } from "@/lib/use-tilt";
 
-const services: { icon: LucideIcon; title: string; description: string }[] = [
+const services: {
+  icon: LucideIcon;
+  number: string;
+  title: string;
+  description: string;
+  flagship?: boolean;
+}[] = [
   {
     icon: Megaphone,
-    title: "קמפיינים ממומנים",
+    number: "01",
+    title: "קידום ממומן",
     description:
-      "בנייה, ניהול ואופטימיזציה של קמפיינים שמביאים פניות ומכירות",
+      "קמפיינים בפייסבוק, אינסטגרם, גוגל, טיקטוק ולינקדאין — עם יעדים מוגדרים מראש ואחריות לתוצאות",
+    flagship: true,
   },
   {
-    icon: Target,
-    title: "פרסום מדויק",
+    icon: Share2,
+    number: "02",
+    title: "ניהול סושיאל",
     description:
-      "טירגוט חד לקהלים הנכונים — פחות בזבוז, יותר לקוחות",
+      "נוכחות עקבית ותוכן שבונה אמון — כדי שהקמפיינים ינחתו על עמוד שמוכר",
   },
   {
-    icon: BarChart3,
-    title: "ניתוח וביצועים",
+    icon: MonitorSmartphone,
+    number: "03",
+    title: "בניית אתרים ודפי נחיתה",
     description:
-      "דוחות שקופים, מעקב ROAS וקבלת החלטות על בסיס נתונים",
+      "דפים מהירים שנבנים בשביל דבר אחד: להפוך גולשים לפניות",
   },
   {
-    icon: Paintbrush,
-    title: "קריאייטיב ותוכן",
+    icon: Compass,
+    number: "04",
+    title: "שיווק 360",
     description:
-      "קופי ועיצוב מודעות שמושכים תשומת לב ומניעים לפעולה",
+      "אסטרטגיה, מיתוג וקריאייטיב — כל מה שסוכנות מסורתית נותנת, תחת קורת גג אחת",
   },
 ];
 
@@ -63,7 +74,11 @@ function ServiceCard({
       <div
         ref={ref}
         {...handlers}
-        className="glass-card-elevated group relative overflow-hidden p-7 will-change-transform hover:border-primary-blue/25"
+        className={`glass-card-elevated group relative h-full overflow-hidden p-7 will-change-transform ${
+          service.flagship
+            ? "border-primary-blue/30 hover:border-primary-blue/50"
+            : "hover:border-primary-blue/25"
+        }`}
       >
         {/* Top accent line — thickens on hover */}
         <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-primary-blue/40 via-primary-purple/30 to-transparent transition-all duration-500 group-hover:h-[3px] group-hover:via-primary-purple/50" />
@@ -71,18 +86,20 @@ function ServiceCard({
         {/* Card hover glow */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary-blue/[0.06] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-        {/* Corner accent (bottom-right in RTL = bottom-left visually) */}
-        <svg
-          className="pointer-events-none absolute bottom-3 left-3 h-8 w-8 text-primary-blue/30 transition-colors duration-500 group-hover:text-primary-blue/55"
-          viewBox="0 0 32 32"
-          fill="none"
+        {/* Ghost numeral */}
+        <span
+          className="ghost-number pointer-events-none absolute -top-2 left-3 select-none"
           aria-hidden="true"
         >
-          <path d="M2 30 L30 30 L30 2" stroke="currentColor" strokeWidth="1" />
-          <path d="M10 30 L30 30 L30 10" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-        </svg>
+          {service.number}
+        </span>
 
         <div className="relative z-10">
+          {service.flagship && (
+            <span className="mb-4 inline-block rounded-full border border-primary-blue/30 bg-primary-blue/15 px-3 py-1 text-xs font-medium text-primary-blue">
+              השירות המרכזי
+            </span>
+          )}
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-blue/15 to-primary-purple/10 ring-1 ring-white/[0.06] transition-all duration-500 group-hover:shadow-lg group-hover:shadow-primary-blue/10">
             <Icon className="h-6 w-6 text-primary-blue" />
           </div>
@@ -114,8 +131,12 @@ export default function ServicesSection() {
             01 / SERVICES
           </span>
           <h2 className="font-display text-4xl font-medium tracking-tight text-gradient md:text-5xl">
-            מה אנחנו עושים
+            במה אני יכול לעזור לך
           </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-text-muted lg:text-lg">
+            קידום ממומן הוא הלב של מה שאני עושה — וסביבו כל מה שעסק צריך כדי
+            שהפרסום באמת יעבוד
+          </p>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
